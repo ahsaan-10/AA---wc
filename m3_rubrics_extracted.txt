@@ -1,0 +1,171 @@
+--- PAGE 1 ---
+  
+Usman Institute of Technology 
+Department of Computer Science 
+Project Evaluation (to Appear in 3rd Milestone FULL Project Demonstration in IDE) 
+Project Demonstration 30 
+1.       IDE   
+2.       interfaces 
+  (Debugging, configuration, wrapper) 
+  
+    
+FYP Chapters 
+ 
+Review of chapter till 2nd milestone from supervisor 
+0 
+FYP Chapters 10 
+1.       Implementation   
+2.       Test Cases  (Funcational {whitebox, blackbox, greyBox})   
+ 
+3. Achievements 
+4. Appendices 
+5. Reference  
+6. Discussion (optional) 
+  
+    
+Diagrams 10 
+1)      Component Diagram   
+2)      Deployment Diagram   
+   
+   
+   
+   
+    
+Project Demonstration (30 marks) status   
+□ Accept (> 20 marks)    
+□ Reject (< 10 marks)      
+    
+ 
+  
+
+--- PAGE 2 ---
+ 
+Milestone 3 Rubrics 
+Criteria Marks 5 10 20 25 30 
+Demonstration of project 
+ 
+30 
+Demonstrated as per 2nd 
+milestone, no more 
+progress. 
+ 
+incomplete project is 
+demonstrated without 
+separate IDE, with incomplete 
+functionalities 
+And (if applicable) NOT 
+demonstrated 
+ debugging interface (for 
+processing steps) 
+, wrapper interface (for 
+external interfaces) 
+And configuration interface(for 
+different customizations 
+Live project is demonstrated 
+from separate IDE, with 
+functionalitiess 
+And (if applicable) 
+demonstrated 
+ debugging interface (for 
+processing steps) 
+, wrapper interface (for external 
+interfaces) 
+And configuration interface(for 
+different customizations)   
+Live project is demonstrated 
+from separate  with Partial 
+functionalities in Separate 
+IDE 
+And (if applicable) properly 
+demonstrated 
+ debugging interface (for 
+processing steps) 
+, wrapper interface (for 
+external interfaces) 
+And configuration 
+interface(for different 
+customizations) 
+Live project is demonstrated 
+from separate IDE, with ALL 
+functionalities. 
+And (if applicable) clearly   
+demonstrated 
+ debugging interface (for 
+processing steps) 
+, wrapper interface (for 
+external interfaces) 
+And configuration 
+interface(for different 
+customizations) 
+  1 2 3  4 5 
+Implementation  
+5 
+Only simple code is shown 
+without any 
+documentation 
+Only simple code is 
+shown with partial 
+documentation 
+Implementation code is well 
+documented with code writing 
+standards 
+Implementation code is a 
+technical code and  well 
+documented with code 
+writing standards 
+Implementation code is a 
+technical code and  well 
+documented with all code 
+writing standards 
+Testing 
+5 
+Only black box test cases 
+are documented with 
+possible outcomes 
+Both white box and black box 
+test cases are documented for 
+passing situations, with 
+possible outcomes 
+Both white box and black box 
+test cases are documented 
+with possible outcomes 
+Both white box and black 
+box test cases are shown 
+with failing and pass cases 
+along with possible 
+feedbacks 
+Both white box and black 
+box test cases are shown 
+with failing cases along 
+with possible feedbacks 
+  2 4 6 8 10 
+Component Diagram 
+Deployment diagram 
+10 
+Both component and 
+deployment diagram does 
+not reflect the components 
+developed. Neither class 
+diagram reflects the 
+components. 
+Both component and 
+deployment diagram does not 
+reflect the components 
+developed.   
+Both component and 
+deployment diagram reflect 
+the components developed. 
+Both component and 
+deployment diagram reflect 
+the deployment 
+environment. Right 
+components are developed 
+Both component and 
+deployment diagram reflect 
+the deployment 
+environment. Right 
+components are developed 
+that reflects reusability and 
+extension. 
+       
+ 

@@ -1,0 +1,410 @@
+{
+  "source_url": "http://127.0.0.1:54034/",
+  "fast": {
+    "mode": "fast",
+    "elapsed_seconds": 21.512,
+    "page_count": 126,
+    "asset_count": 4,
+    "entry_status": 200,
+    "homepage_markers_present": {
+      "title_present": true,
+      "hero_heading_present": true,
+      "hero_button_present": true
+    },
+    "stylesheet_checks": [
+      {
+        "href": "assets/css/site-c52bdc40.css",
+        "is_local": true,
+        "fetch": {
+          "url": "http://127.0.0.1:54184/assets/css/site-c52bdc40.css",
+          "status": 200
+        }
+      }
+    ],
+    "navigation_checks": {
+      "logo-link": {
+        "url": "http://127.0.0.1:54184/index.html",
+        "status": 200
+      },
+      "about-link": {
+        "url": "http://127.0.0.1:54184/about/index.html",
+        "status": 200
+      },
+      "products-link": {
+        "url": "http://127.0.0.1:54184/products/index.html",
+        "status": 200
+      },
+      "post-link": {
+        "url": "http://127.0.0.1:54184/blog/post-1/index.html",
+        "status": 200
+      },
+      "blog-link": {
+        "url": "http://127.0.0.1:54184/blog/index.html",
+        "status": 200
+      },
+      "contact-link": {
+        "url": "http://127.0.0.1:54184/contact/index.html",
+        "status": 200
+      },
+      "footer-about": {
+        "url": "http://127.0.0.1:54184/about/index.html",
+        "status": 200
+      },
+      "footer-products": {
+        "url": "http://127.0.0.1:54184/products/index.html",
+        "status": 200
+      },
+      "hero-btn": {
+        "url": "http://127.0.0.1:54184/products/index.html",
+        "status": 200
+      },
+      "card-about": {
+        "url": "http://127.0.0.1:54184/about/index.html",
+        "status": 200
+      },
+      "card-products": {
+        "url": "http://127.0.0.1:54184/products/index.html",
+        "status": 200
+      }
+    },
+    "about_navigation_checks": {
+      "breadcrumb-home": {
+        "url": "http://127.0.0.1:54184/index.html",
+        "status": 200
+      },
+      "breadcrumb-products": {
+        "url": "http://127.0.0.1:54184/products/index.html",
+        "status": 200
+      },
+      "about-to-products": {
+        "url": "http://127.0.0.1:54184/products/index.html",
+        "status": 200
+      }
+    },
+    "products_navigation_checks": {
+      "pagination-link": {
+        "url": "http://127.0.0.1:54184/blog/post-1/index.html",
+        "status": 200
+      },
+      "home-link": {
+        "url": "http://127.0.0.1:54184/index.html",
+        "status": 200
+      }
+    },
+    "about_button_check": {
+      "url": "http://127.0.0.1:54184/contact/index.html",
+      "status": 200
+    },
+    "form_check": {
+      "url": "http://127.0.0.1:54184/contact/index.html",
+      "status": 200
+    },
+    "placeholder_pages": [],
+    "bridge_present": true,
+    "dropdown_bridge_present": true,
+    "submit_bridge_present": true,
+    "original_host_references_in_clone_html": [],
+    "targets": {
+      "href": [
+        {
+          "id": null,
+          "tag": "link",
+          "value": "assets/css/site-c52bdc40.css"
+        },
+        {
+          "id": "logo-link",
+          "tag": "a",
+          "value": "index.html"
+        },
+        {
+          "id": "about-link",
+          "tag": "a",
+          "value": "about/index.html"
+        },
+        {
+          "id": "products-toggle",
+          "tag": "a",
+          "value": "#"
+        },
+        {
+          "id": "products-link",
+          "tag": "a",
+          "value": "products/index.html"
+        },
+        {
+          "id": "post-link",
+          "tag": "a",
+          "value": "blog/post-1/index.html"
+        },
+        {
+          "id": "blog-link",
+          "tag": "a",
+          "value": "blog/index.html"
+        },
+        {
+          "id": "contact-link",
+          "tag": "a",
+          "value": "contact/index.html"
+        },
+        {
+          "id": "footer-about",
+          "tag": "a",
+          "value": "about/index.html"
+        },
+        {
+          "id": "footer-products",
+          "tag": "a",
+          "value": "products/index.html"
+        }
+      ],
+      "data-href": [
+        {
+          "id": "hero-btn",
+          "tag": "button",
+          "value": "products/index.html"
+        },
+        {
+          "id": "card-about",
+          "tag": "div",
+          "value": "about/index.html"
+        }
+      ],
+      "data-url": [
+        {
+          "id": "card-products",
+          "tag": "div",
+          "value": "products/index.html"
+        }
+      ],
+      "action": [
+        {
+          "id": null,
+          "tag": "form",
+          "value": "contact/index.html"
+        }
+      ],
+      "formaction": []
+    },
+    "bundle_dir": "C:\\Users\\lenovo\\Downloads\\aa\\project_assets\\staged_clones\\127-0-0-1-54034-20260413235922-33bd1397",
+    "site_dir": "C:\\Users\\lenovo\\Downloads\\aa\\project_assets\\staged_clones\\127-0-0-1-54034-20260413235922-33bd1397\\site"
+  },
+  "deep": {
+    "mode": "deep",
+    "elapsed_seconds": 5.725,
+    "page_count": 126,
+    "asset_count": 4,
+    "entry_status": 200,
+    "homepage_markers_present": {
+      "title_present": true,
+      "hero_heading_present": true,
+      "hero_button_present": true
+    },
+    "stylesheet_checks": [
+      {
+        "href": "assets/css/site-c52bdc40.css",
+        "is_local": true,
+        "fetch": {
+          "url": "http://127.0.0.1:54348/assets/css/site-c52bdc40.css",
+          "status": 200
+        }
+      }
+    ],
+    "navigation_checks": {
+      "logo-link": {
+        "url": "http://127.0.0.1:54348/index.html",
+        "status": 200
+      },
+      "about-link": {
+        "url": "http://127.0.0.1:54348/about/index.html",
+        "status": 200
+      },
+      "products-link": {
+        "url": "http://127.0.0.1:54348/products/index.html",
+        "status": 200
+      },
+      "post-link": {
+        "url": "http://127.0.0.1:54348/blog/post-1/index.html",
+        "status": 200
+      },
+      "blog-link": {
+        "url": "http://127.0.0.1:54348/blog/index.html",
+        "status": 200
+      },
+      "contact-link": {
+        "url": "http://127.0.0.1:54348/contact/index.html",
+        "status": 200
+      },
+      "footer-about": {
+        "url": "http://127.0.0.1:54348/about/index.html",
+        "status": 200
+      },
+      "footer-products": {
+        "url": "http://127.0.0.1:54348/products/index.html",
+        "status": 200
+      },
+      "hero-btn": {
+        "url": "http://127.0.0.1:54348/products/index.html",
+        "status": 200
+      },
+      "card-about": {
+        "url": "http://127.0.0.1:54348/about/index.html",
+        "status": 200
+      },
+      "card-products": {
+        "url": "http://127.0.0.1:54348/products/index.html",
+        "status": 200
+      }
+    },
+    "about_navigation_checks": {
+      "breadcrumb-home": {
+        "url": "http://127.0.0.1:54348/index.html",
+        "status": 200
+      },
+      "breadcrumb-products": {
+        "url": "http://127.0.0.1:54348/products/index.html",
+        "status": 200
+      },
+      "about-to-products": {
+        "url": "http://127.0.0.1:54348/products/index.html",
+        "status": 200
+      }
+    },
+    "products_navigation_checks": {
+      "pagination-link": {
+        "url": "http://127.0.0.1:54348/blog/post-1/index.html",
+        "status": 200
+      },
+      "home-link": {
+        "url": "http://127.0.0.1:54348/index.html",
+        "status": 200
+      }
+    },
+    "about_button_check": {
+      "url": "http://127.0.0.1:54348/contact/index.html",
+      "status": 200
+    },
+    "form_check": {
+      "url": "http://127.0.0.1:54348/contact/index.html",
+      "status": 200
+    },
+    "placeholder_pages": [],
+    "bridge_present": true,
+    "dropdown_bridge_present": true,
+    "submit_bridge_present": true,
+    "original_host_references_in_clone_html": [],
+    "targets": {
+      "href": [
+        {
+          "id": null,
+          "tag": "link",
+          "value": "assets/css/site-c52bdc40.css"
+        },
+        {
+          "id": "logo-link",
+          "tag": "a",
+          "value": "index.html"
+        },
+        {
+          "id": "about-link",
+          "tag": "a",
+          "value": "about/index.html"
+        },
+        {
+          "id": "products-toggle",
+          "tag": "a",
+          "value": "#"
+        },
+        {
+          "id": "products-link",
+          "tag": "a",
+          "value": "products/index.html"
+        },
+        {
+          "id": "post-link",
+          "tag": "a",
+          "value": "blog/post-1/index.html"
+        },
+        {
+          "id": "blog-link",
+          "tag": "a",
+          "value": "blog/index.html"
+        },
+        {
+          "id": "contact-link",
+          "tag": "a",
+          "value": "contact/index.html"
+        },
+        {
+          "id": "footer-about",
+          "tag": "a",
+          "value": "about/index.html"
+        },
+        {
+          "id": "footer-products",
+          "tag": "a",
+          "value": "products/index.html"
+        }
+      ],
+      "data-href": [
+        {
+          "id": "hero-btn",
+          "tag": "button",
+          "value": "products/index.html"
+        },
+        {
+          "id": "card-about",
+          "tag": "div",
+          "value": "about/index.html"
+        }
+      ],
+      "data-url": [
+        {
+          "id": "card-products",
+          "tag": "div",
+          "value": "products/index.html"
+        }
+      ],
+      "action": [
+        {
+          "id": null,
+          "tag": "form",
+          "value": "contact/index.html"
+        }
+      ],
+      "formaction": []
+    },
+    "bundle_dir": "C:\\Users\\lenovo\\Downloads\\aa\\project_assets\\staged_clones\\127-0-0-1-54034-20260413235945-33bd1397",
+    "site_dir": "C:\\Users\\lenovo\\Downloads\\aa\\project_assets\\staged_clones\\127-0-0-1-54034-20260413235945-33bd1397\\site"
+  },
+  "timing_summary": {
+    "order_1": {
+      "execution_order": [
+        "fast",
+        "deep"
+      ],
+      "fast_first_seconds": 21.512,
+      "deep_second_seconds": 5.725
+    },
+    "order_2": {
+      "execution_order": [
+        "deep",
+        "fast"
+      ],
+      "deep_first_seconds": 4.516,
+      "fast_second_seconds": 5.128
+    },
+    "order_neutral_average_seconds": {
+      "fast": 13.32,
+      "deep": 5.12
+    },
+    "order_neutral_fast_is_faster": false,
+    "note": "Clone timing on a localhost static fixture is cache-sensitive, so both execution orders are recorded and the order-neutral average is used for comparison."
+  },
+  "comparisons": {
+    "fast_is_faster_than_deep_in_first_order_only": false,
+    "deep_clones_more_pages_than_fast": false,
+    "deep_clones_at_least_as_many_pages_as_fast": true,
+    "fast_has_no_placeholder_pages": true,
+    "deep_has_no_placeholder_pages": true
+  }
+}

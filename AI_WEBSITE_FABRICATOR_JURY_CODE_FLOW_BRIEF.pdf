@@ -1,0 +1,646 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+2 0 obj
+<< /Length 2513 >>
+stream
+BT
+1 0 0 1 48 804 Tm /F1 20 Tf (AI Website Fabricator) Tj
+1 0 0 1 48 774 Tm /F1 16 Tf (Jury Code Flow Brief) Tj
+1 0 0 1 48 738 Tm /F1 10 Tf (Purpose: give short, defendable, code-backed answers about what the project is doing end to end.) Tj
+1 0 0 1 48 714 Tm /F1 10 Tf (Source of truth: current codebase in this workspace, not older milestone assumptions.) Tj
+1 0 0 1 48 690 Tm /F1 10 Tf (---) Tj
+1 0 0 1 48 666 Tm /F1 16 Tf (1. System In One Sentence) Tj
+1 0 0 1 48 630 Tm /F1 10 Tf (This project clones a real website into a local multi-page bundle, saves that clone, converts the clone ) Tj
+1 0 0 1 48 616 Tm /F1 10 Tf (into structured CMS data, exposes APIs and a separate admin panel for managing that data, and can finally) Tj
+1 0 0 1 48 602 Tm /F1 10 Tf ( package the whole system as a standalone connected export.) Tj
+1 0 0 1 48 578 Tm /F1 10 Tf (Main code references:) Tj
+1 0 0 1 48 554 Tm /F1 10 Tf (- `app.py:1665-2159`) Tj
+1 0 0 1 48 540 Tm /F1 10 Tf (- `cloner_engine.py:1529-1717`) Tj
+1 0 0 1 48 526 Tm /F1 10 Tf (- `smart_conversion.py:1522-1585`) Tj
+1 0 0 1 48 512 Tm /F1 10 Tf (- `dragdrop_flask.py:621-765`) Tj
+1 0 0 1 48 498 Tm /F1 10 Tf (- `connected_export.py:1117-1218`) Tj
+1 0 0 1 48 474 Tm /F1 10 Tf (---) Tj
+1 0 0 1 48 450 Tm /F1 16 Tf (2. Real End-to-End Coding Flow) Tj
+1 0 0 1 48 414 Tm /F1 13 Tf (Step 1: the app initializes persistence) Tj
+1 0 0 1 48 382 Tm /F1 10 Tf (The main Streamlit app creates the project database and all main tables in `init_db\(\)`. This includes:) Tj
+1 0 0 1 48 358 Tm /F1 10 Tf (- `users`) Tj
+1 0 0 1 48 344 Tm /F1 10 Tf (- `cloned_sites`) Tj
+1 0 0 1 48 330 Tm /F1 10 Tf (- `conversion_blueprints`) Tj
+1 0 0 1 48 316 Tm /F1 10 Tf (- `site_specs`) Tj
+1 0 0 1 48 302 Tm /F1 10 Tf (- `dynamic_models`) Tj
+1 0 0 1 48 288 Tm /F1 10 Tf (- `dynamic_records`) Tj
+1 0 0 1 48 274 Tm /F1 10 Tf (- `media_assets`) Tj
+1 0 0 1 48 250 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 224 Tm /F1 10 Tf (- `app.py:244-379`) Tj
+1 0 0 1 48 200 Tm /F1 13 Tf (Step 2: the user clones a website from Streamlit) Tj
+1 0 0 1 48 168 Tm /F1 10 Tf (In the `Clone New Site` menu, Streamlit accepts the URL, lets the user choose `Deep Clone` or `Fast ) Tj
+1 0 0 1 48 154 Tm /F1 10 Tf (Clone`, then calls `scrape_website\(\)`, which forwards to `clone_site_bundle\(\)` using the selected crawl ) Tj
+1 0 0 1 48 140 Tm /F1 10 Tf (limits.) Tj
+1 0 0 1 48 116 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 90 Tm /F1 10 Tf (- `app.py:1533-1544`) Tj
+1 0 0 1 48 76 Tm /F1 10 Tf (- `app.py:1705-1754`) Tj
+ET
+endstream
+endobj
+3 0 obj
+<< /Type /Page /Parent 28 0 R /Resources << /Font << /F1 1 0 R >> >> /Contents 2 0 R >>
+endobj
+4 0 obj
+<< /Length 2795 >>
+stream
+BT
+1 0 0 1 48 804 Tm /F1 13 Tf (Step 3: the clone engine crawls the site) Tj
+1 0 0 1 48 772 Tm /F1 10 Tf (`crawl_site_pages\(\)` performs the crawl. It:) Tj
+1 0 0 1 48 748 Tm /F1 10 Tf (- normalizes the root URL) Tj
+1 0 0 1 48 734 Tm /F1 10 Tf (- uses a queue for BFS-style traversal) Tj
+1 0 0 1 48 720 Tm /F1 10 Tf (- discovers same-domain pages from links and sitemap candidates) Tj
+1 0 0 1 48 706 Tm /F1 10 Tf (- stops at `max_pages` and `max_depth`) Tj
+1 0 0 1 48 692 Tm /F1 10 Tf (- stores raw HTML per discovered page) Tj
+1 0 0 1 48 668 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 642 Tm /F1 10 Tf (- `cloner_engine.py:615-699`) Tj
+1 0 0 1 48 618 Tm /F1 13 Tf (Step 4: the clone engine downloads and rewrites assets) Tj
+1 0 0 1 48 586 Tm /F1 10 Tf (After crawling, `clone_site_bundle\(\)`:) Tj
+1 0 0 1 48 562 Tm /F1 10 Tf (- builds local output paths for every page) Tj
+1 0 0 1 48 548 Tm /F1 10 Tf (- prefetches page asset requests) Tj
+1 0 0 1 48 534 Tm /F1 10 Tf (- rewrites each page through `rewrite_page_html\(\)`) Tj
+1 0 0 1 48 520 Tm /F1 10 Tf (- clones images, CSS, JS, fonts, and other assets) Tj
+1 0 0 1 48 506 Tm /F1 10 Tf (- rewrites links so the clone works locally) Tj
+1 0 0 1 48 492 Tm /F1 10 Tf (- injects a navigation bridge for cloned interactivity) Tj
+1 0 0 1 48 478 Tm /F1 10 Tf (- writes a manifest and a ZIP archive) Tj
+1 0 0 1 48 454 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 428 Tm /F1 10 Tf (- `cloner_engine.py:1529-1717`) Tj
+1 0 0 1 48 414 Tm /F1 10 Tf (- `cloner_engine.py:1348-1468`) Tj
+1 0 0 1 48 400 Tm /F1 10 Tf (- `cloner_engine.py:1286-1346`) Tj
+1 0 0 1 48 386 Tm /F1 10 Tf (- `cloner_engine.py:1471-1488`) Tj
+1 0 0 1 48 362 Tm /F1 10 Tf (Important viva point:) Tj
+1 0 0 1 48 348 Tm /F1 10 Tf (This is not screenshot-based regeneration. It is deterministic cloning plus path rewriting.) Tj
+1 0 0 1 48 324 Tm /F1 13 Tf (Step 5: the staged clone is previewed before saving) Tj
+1 0 0 1 48 292 Tm /F1 10 Tf (The freshly cloned bundle is previewed through Flask under `/staged-clone/<clone_key>/...`, and Streamlit) Tj
+1 0 0 1 48 278 Tm /F1 10 Tf ( embeds that preview in an iframe.) Tj
+1 0 0 1 48 254 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 228 Tm /F1 10 Tf (- `dragdrop_flask.py:621-629`) Tj
+1 0 0 1 48 214 Tm /F1 10 Tf (- `app.py:1809-1816`) Tj
+1 0 0 1 48 190 Tm /F1 13 Tf (Step 6: the clone is saved as a project) Tj
+1 0 0 1 48 158 Tm /F1 10 Tf (When the user clicks `Save to Project Database`, the system:) Tj
+1 0 0 1 48 134 Tm /F1 10 Tf (1. stores the original entry HTML in `cloned_sites`) Tj
+1 0 0 1 48 120 Tm /F1 10 Tf (2. copies the whole staged clone into `project_assets/clone_packages/site_<id>/`) Tj
+1 0 0 1 48 96 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 70 Tm /F1 10 Tf (- `app.py:1794-1807`) Tj
+1 0 0 1 48 56 Tm /F1 10 Tf (- `app.py:428-446`) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 28 0 R /Resources << /Font << /F1 1 0 R >> >> /Contents 4 0 R >>
+endobj
+6 0 obj
+<< /Length 2701 >>
+stream
+BT
+1 0 0 1 48 804 Tm /F1 10 Tf (- `cloner_engine.py:1737-1742`) Tj
+1 0 0 1 48 780 Tm /F1 13 Tf (Step 7: the saved clone can be edited in two ways) Tj
+1 0 0 1 48 748 Tm /F1 10 Tf (There are two editing paths:) Tj
+1 0 0 1 48 724 Tm /F1 10 Tf (1. Raw HTML editor in Streamlit) Tj
+1 0 0 1 48 710 Tm /F1 10 Tf (2. Drag-and-drop builder hosted by Flask) Tj
+1 0 0 1 48 686 Tm /F1 10 Tf (When HTML is updated, the app also updates the saved clone entry file and rebuilds the ZIP so the saved ) Tj
+1 0 0 1 48 672 Tm /F1 10 Tf (project stays consistent.) Tj
+1 0 0 1 48 648 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 622 Tm /F1 10 Tf (- `app.py:1818-1871`) Tj
+1 0 0 1 48 608 Tm /F1 10 Tf (- `app.py:459-466`) Tj
+1 0 0 1 48 594 Tm /F1 10 Tf (- `cloner_engine.py:1852-1863`) Tj
+1 0 0 1 48 580 Tm /F1 10 Tf (- `app.py:2133-2153`) Tj
+1 0 0 1 48 566 Tm /F1 10 Tf (- `dragdrop_flask.py:541-567`) Tj
+1 0 0 1 48 542 Tm /F1 13 Tf (Step 8: Smart Dynamic Conversion turns the clone into CMS data) Tj
+1 0 0 1 48 510 Tm /F1 10 Tf (When the user clicks `Generate Database + Admin Panel`, Streamlit calls `generate_clone_runtime\(\)`. This ) Tj
+1 0 0 1 48 496 Tm /F1 10 Tf (is the key orchestration function for the dynamic side.) Tj
+1 0 0 1 48 472 Tm /F1 10 Tf (It does five major things:) Tj
+1 0 0 1 48 448 Tm /F1 10 Tf (1. builds the conversion blueprint) Tj
+1 0 0 1 48 434 Tm /F1 10 Tf (2. applies clone runtime context) Tj
+1 0 0 1 48 420 Tm /F1 10 Tf (3. writes generated artifact files) Tj
+1 0 0 1 48 406 Tm /F1 10 Tf (4. saves `SiteSpec` and blueprint into SQLite) Tj
+1 0 0 1 48 392 Tm /F1 10 Tf (5. rebuilds models, records, and media tables) Tj
+1 0 0 1 48 368 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 342 Tm /F1 10 Tf (- `app.py:1931-1945`) Tj
+1 0 0 1 48 328 Tm /F1 10 Tf (- `app.py:874-896`) Tj
+1 0 0 1 48 304 Tm /F1 13 Tf (Step 9: the conversion engine analyzes the clone) Tj
+1 0 0 1 48 272 Tm /F1 10 Tf (`build_conversion_blueprint\(\)` is the main algorithmic entry point of the inference engine. It:) Tj
+1 0 0 1 48 248 Tm /F1 10 Tf (1. detects the site type) Tj
+1 0 0 1 48 234 Tm /F1 10 Tf (2. extracts media and localizes it) Tj
+1 0 0 1 48 220 Tm /F1 10 Tf (3. injects the frontend bridge) Tj
+1 0 0 1 48 206 Tm /F1 10 Tf (4. extracts navigation) Tj
+1 0 0 1 48 192 Tm /F1 10 Tf (5. extracts forms) Tj
+1 0 0 1 48 178 Tm /F1 10 Tf (6. extracts sections) Tj
+1 0 0 1 48 164 Tm /F1 10 Tf (7. infers content models) Tj
+1 0 0 1 48 150 Tm /F1 10 Tf (8. builds seed records) Tj
+1 0 0 1 48 136 Tm /F1 10 Tf (9. calculates confidence) Tj
+1 0 0 1 48 122 Tm /F1 10 Tf (10. builds backend/admin/frontend metadata) Tj
+1 0 0 1 48 98 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 72 Tm /F1 10 Tf (- `smart_conversion.py:1522-1585`) Tj
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 28 0 R /Resources << /Font << /F1 1 0 R >> >> /Contents 6 0 R >>
+endobj
+8 0 obj
+<< /Length 2848 >>
+stream
+BT
+1 0 0 1 48 804 Tm /F1 13 Tf (Step 10: site type detection is rules-based) Tj
+1 0 0 1 48 772 Tm /F1 10 Tf (`detect_site_type\(\)` uses keyword scoring from page text, forms, hostnames, and special keywords such as ) Tj
+1 0 0 1 48 758 Tm /F1 10 Tf (`shop`, `university`, `book`, and `newsletter`. It returns both a type and a confidence.) Tj
+1 0 0 1 48 734 Tm /F1 10 Tf (This means the current system uses rule-based inference, not an external ML classifier.) Tj
+1 0 0 1 48 710 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 684 Tm /F1 10 Tf (- `smart_conversion.py:950-982`) Tj
+1 0 0 1 48 660 Tm /F1 13 Tf (Step 11: media extraction and localization build the media library) Tj
+1 0 0 1 48 628 Tm /F1 10 Tf (`extract_media_assets\(\)` scans:) Tj
+1 0 0 1 48 604 Tm /F1 10 Tf (- image and media tags) Tj
+1 0 0 1 48 590 Tm /F1 10 Tf (- lazy-loading attributes) Tj
+1 0 0 1 48 576 Tm /F1 10 Tf (- inline styles) Tj
+1 0 0 1 48 562 Tm /F1 10 Tf (- style tags) Tj
+1 0 0 1 48 548 Tm /F1 10 Tf (- linked stylesheets) Tj
+1 0 0 1 48 534 Tm /F1 10 Tf (- inline SVG) Tj
+1 0 0 1 48 510 Tm /F1 10 Tf (Then `materialize_media_asset\(\)` tries to download each asset into `project_assets/media/site_<id>/`. If ) Tj
+1 0 0 1 48 496 Tm /F1 10 Tf (downloading fails, the system keeps it as an external reference instead of crashing.) Tj
+1 0 0 1 48 472 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 446 Tm /F1 10 Tf (- `smart_conversion.py:425-645`) Tj
+1 0 0 1 48 432 Tm /F1 10 Tf (- `smart_conversion.py:648-710`) Tj
+1 0 0 1 48 418 Tm /F1 10 Tf (- `smart_conversion.py:712-756`) Tj
+1 0 0 1 48 394 Tm /F1 13 Tf (Step 12: content models and seed records are inferred) Tj
+1 0 0 1 48 362 Tm /F1 10 Tf (`extract_content_models\(\)` chooses business models based on site type, then always adds system models:) Tj
+1 0 0 1 48 338 Tm /F1 10 Tf (- `site_pages`) Tj
+1 0 0 1 48 324 Tm /F1 10 Tf (- `site_sections`) Tj
+1 0 0 1 48 310 Tm /F1 10 Tf (- `navigation_items`) Tj
+1 0 0 1 48 296 Tm /F1 10 Tf (- `theme_styles`) Tj
+1 0 0 1 48 272 Tm /F1 10 Tf (`extract_seed_records\(\)` then fills those models using headings, paragraphs, prices, media URLs, section ) Tj
+1 0 0 1 48 258 Tm /F1 10 Tf (selectors, and navigation items extracted from the clone.) Tj
+1 0 0 1 48 234 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 208 Tm /F1 10 Tf (- `smart_conversion.py:1281-1318`) Tj
+1 0 0 1 48 194 Tm /F1 10 Tf (- `smart_conversion.py:1321-1368`) Tj
+1 0 0 1 48 170 Tm /F1 13 Tf (Step 13: the confidence score is computed from multiple signals) Tj
+1 0 0 1 48 138 Tm /F1 10 Tf (The final confidence is not arbitrary. It is a weighted score using:) Tj
+1 0 0 1 48 114 Tm /F1 10 Tf (- DOM structure) Tj
+1 0 0 1 48 100 Tm /F1 10 Tf (- text extraction completeness) Tj
+1 0 0 1 48 86 Tm /F1 10 Tf (- section detection) Tj
+1 0 0 1 48 72 Tm /F1 10 Tf (- style match) Tj
+1 0 0 1 48 58 Tm /F1 10 Tf (- layout match) Tj
+ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 28 0 R /Resources << /Font << /F1 1 0 R >> >> /Contents 8 0 R >>
+endobj
+10 0 obj
+<< /Length 2485 >>
+stream
+BT
+1 0 0 1 48 804 Tm /F1 10 Tf (- media recovery) Tj
+1 0 0 1 48 790 Tm /F1 10 Tf (- link extraction) Tj
+1 0 0 1 48 776 Tm /F1 10 Tf (- interactive component detection) Tj
+1 0 0 1 48 762 Tm /F1 10 Tf (- site type confidence) Tj
+1 0 0 1 48 738 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 712 Tm /F1 10 Tf (- `smart_conversion.py:1433-1487`) Tj
+1 0 0 1 48 688 Tm /F1 13 Tf (Step 14: SiteSpec is the contract used by the admin app) Tj
+1 0 0 1 48 656 Tm /F1 10 Tf (`build_site_spec\(\)` converts the blueprint into a schema-driven contract containing:) Tj
+1 0 0 1 48 632 Tm /F1 10 Tf (- project identity) Tj
+1 0 0 1 48 618 Tm /F1 10 Tf (- site type) Tj
+1 0 0 1 48 604 Tm /F1 10 Tf (- confidence) Tj
+1 0 0 1 48 590 Tm /F1 10 Tf (- admin theme) Tj
+1 0 0 1 48 576 Tm /F1 10 Tf (- media summary) Tj
+1 0 0 1 48 562 Tm /F1 10 Tf (- resources and fields) Tj
+1 0 0 1 48 548 Tm /F1 10 Tf (- frontend bindings) Tj
+1 0 0 1 48 534 Tm /F1 10 Tf (- pipeline steps) Tj
+1 0 0 1 48 520 Tm /F1 10 Tf (- diagnostics) Tj
+1 0 0 1 48 496 Tm /F1 10 Tf (The React admin does not hardcode resource screens per site. It reads the generated `SiteSpec`.) Tj
+1 0 0 1 48 472 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 446 Tm /F1 10 Tf (- `smart_conversion.py:1497-1519`) Tj
+1 0 0 1 48 432 Tm /F1 10 Tf (- `app.py:927-950`) Tj
+1 0 0 1 48 408 Tm /F1 13 Tf (Step 15: SQLite is rebuilt with models and records) Tj
+1 0 0 1 48 376 Tm /F1 10 Tf (`rebuild_dynamic_site_data\(\)` deletes existing dynamic models and records for the site, then inserts:) Tj
+1 0 0 1 48 352 Tm /F1 10 Tf (- one row per inferred model into `dynamic_models`) Tj
+1 0 0 1 48 338 Tm /F1 10 Tf (- one row per seed record into `dynamic_records`) Tj
+1 0 0 1 48 314 Tm /F1 10 Tf (Seeded records are initially inserted as `published`.) Tj
+1 0 0 1 48 290 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 264 Tm /F1 10 Tf (- `app.py:991-1043`) Tj
+1 0 0 1 48 240 Tm /F1 13 Tf (Step 16: media is synchronized into `media_assets`) Tj
+1 0 0 1 48 208 Tm /F1 10 Tf (`sync_media_assets\(\)` upserts media rows, preserves customized media when appropriate, and archives stale) Tj
+1 0 0 1 48 194 Tm /F1 10 Tf ( clone-sourced media that is no longer present in the latest conversion output.) Tj
+1 0 0 1 48 170 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 144 Tm /F1 10 Tf (- `app.py:785-872`) Tj
+1 0 0 1 48 120 Tm /F1 13 Tf (Step 17: Flask becomes the service layer) Tj
+1 0 0 1 48 88 Tm /F1 10 Tf (`dragdrop_flask.py` serves:) Tj
+1 0 0 1 48 64 Tm /F1 10 Tf (- staged clone previews) Tj
+ET
+endstream
+endobj
+11 0 obj
+<< /Type /Page /Parent 28 0 R /Resources << /Font << /F1 1 0 R >> >> /Contents 10 0 R >>
+endobj
+12 0 obj
+<< /Length 2976 >>
+stream
+BT
+1 0 0 1 48 804 Tm /F1 10 Tf (- saved clone previews) Tj
+1 0 0 1 48 790 Tm /F1 10 Tf (- clone ZIP downloads) Tj
+1 0 0 1 48 776 Tm /F1 10 Tf (- visual editor pages) Tj
+1 0 0 1 48 762 Tm /F1 10 Tf (- the built React admin) Tj
+1 0 0 1 48 748 Tm /F1 10 Tf (- admin APIs) Tj
+1 0 0 1 48 734 Tm /F1 10 Tf (- public APIs) Tj
+1 0 0 1 48 720 Tm /F1 10 Tf (- dynamic APIs) Tj
+1 0 0 1 48 706 Tm /F1 10 Tf (- media files) Tj
+1 0 0 1 48 682 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 656 Tm /F1 10 Tf (- `dragdrop_flask.py:541-670`) Tj
+1 0 0 1 48 642 Tm /F1 10 Tf (- `dragdrop_flask.py:673-1251`) Tj
+1 0 0 1 48 618 Tm /F1 13 Tf (Step 18: the separate admin panel is route-driven and SiteSpec-driven) Tj
+1 0 0 1 48 586 Tm /F1 10 Tf (The React admin routes are defined in `App.tsx`. The main protected area is:) Tj
+1 0 0 1 48 562 Tm /F1 10 Tf (- `/admin/site/:projectId`) Tj
+1 0 0 1 48 548 Tm /F1 10 Tf (- `/admin/site/:projectId/resources/:resourceKey`) Tj
+1 0 0 1 48 534 Tm /F1 10 Tf (- `/admin/site/:projectId/resources/:resourceKey/new`) Tj
+1 0 0 1 48 520 Tm /F1 10 Tf (- `/admin/site/:projectId/resources/:resourceKey/:recordId`) Tj
+1 0 0 1 48 506 Tm /F1 10 Tf (- `/admin/site/:projectId/media`) Tj
+1 0 0 1 48 482 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 456 Tm /F1 10 Tf (- `admin/src/App.tsx:91-139`) Tj
+1 0 0 1 48 432 Tm /F1 10 Tf (`AdminShell` loads the project spec, applies the selected admin theme, separates content resources from ) Tj
+1 0 0 1 48 418 Tm /F1 10 Tf (system resources, and builds sidebar navigation directly from `SiteSpec`.) Tj
+1 0 0 1 48 394 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 368 Tm /F1 10 Tf (- `admin/src/components/AdminShell.tsx:65-140`) Tj
+1 0 0 1 48 354 Tm /F1 10 Tf (- `admin/src/components/AdminShell.tsx:195-243`) Tj
+1 0 0 1 48 330 Tm /F1 13 Tf (Step 19: the admin pages perform actual CRUD) Tj
+1 0 0 1 48 298 Tm /F1 10 Tf (The React admin works like this:) Tj
+1 0 0 1 48 274 Tm /F1 10 Tf (- `ProjectDetailPage` shows overview, confidence, resources, and diagnostics) Tj
+1 0 0 1 48 260 Tm /F1 10 Tf (- `ResourceListPage` lists records and supports publish/delete) Tj
+1 0 0 1 48 246 Tm /F1 10 Tf (- `RecordEditorPage` renders fields from `SiteSpec`) Tj
+1 0 0 1 48 232 Tm /F1 10 Tf (- `MediaPage` handles upload, replace, delete, preview, and search) Tj
+1 0 0 1 48 208 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 182 Tm /F1 10 Tf (- `admin/src/pages/ProjectDetailPage.tsx:8-227`) Tj
+1 0 0 1 48 168 Tm /F1 10 Tf (- `admin/src/pages/ResourceListPage.tsx:64-240`) Tj
+1 0 0 1 48 154 Tm /F1 10 Tf (- `admin/src/pages/RecordEditorPage.tsx:49-279`) Tj
+1 0 0 1 48 140 Tm /F1 10 Tf (- `admin/src/pages/MediaPage.tsx:50-260`) Tj
+1 0 0 1 48 116 Tm /F1 10 Tf (On the backend side, CRUD is implemented through:) Tj
+1 0 0 1 48 92 Tm /F1 10 Tf (- `/api/admin/<site_id>/<resource_key>`) Tj
+1 0 0 1 48 78 Tm /F1 10 Tf (- `/api/admin/<site_id>/<resource_key>/<record_id>`) Tj
+1 0 0 1 48 64 Tm /F1 10 Tf (- `/api/admin/<site_id>/<resource_key>/<record_id>/publish`) Tj
+ET
+endstream
+endobj
+13 0 obj
+<< /Type /Page /Parent 28 0 R /Resources << /Font << /F1 1 0 R >> >> /Contents 12 0 R >>
+endobj
+14 0 obj
+<< /Length 2522 >>
+stream
+BT
+1 0 0 1 48 804 Tm /F1 10 Tf (- `/api/admin/<site_id>/media`) Tj
+1 0 0 1 48 790 Tm /F1 10 Tf (- `/api/admin/<site_id>/media/<media_id>`) Tj
+1 0 0 1 48 766 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 740 Tm /F1 10 Tf (- `dragdrop_flask.py:841-977`) Tj
+1 0 0 1 48 726 Tm /F1 10 Tf (- `dragdrop_flask.py:980-1165`) Tj
+1 0 0 1 48 702 Tm /F1 13 Tf (Step 20: the public side reads published data only) Tj
+1 0 0 1 48 670 Tm /F1 10 Tf (The clone bridge and external consumers use published/public endpoints. The public resource endpoint ) Tj
+1 0 0 1 48 656 Tm /F1 10 Tf (filters records by `status = 'published'`.) Tj
+1 0 0 1 48 632 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 606 Tm /F1 10 Tf (- `dragdrop_flask.py:1174-1187`) Tj
+1 0 0 1 48 582 Tm /F1 13 Tf (Step 21: connected export creates a standalone package) Tj
+1 0 0 1 48 550 Tm /F1 10 Tf (`build_connected_export\(\)` creates a full delivery package containing:) Tj
+1 0 0 1 48 526 Tm /F1 10 Tf (- `cloned_website/`) Tj
+1 0 0 1 48 512 Tm /F1 10 Tf (- `admin_system/admin_panel/`) Tj
+1 0 0 1 48 498 Tm /F1 10 Tf (- `admin_system/backend/`) Tj
+1 0 0 1 48 484 Tm /F1 10 Tf (- `admin_system/database/site.db`) Tj
+1 0 0 1 48 470 Tm /F1 10 Tf (- `admin_system/media/`) Tj
+1 0 0 1 48 456 Tm /F1 10 Tf (- `admin_system/generated_dynamic/`) Tj
+1 0 0 1 48 432 Tm /F1 10 Tf (It copies only the selected site?s database subset, injects the clone bridge into exported HTML, writes a) Tj
+1 0 0 1 48 418 Tm /F1 10 Tf ( standalone Flask backend, writes startup scripts, and creates a final ZIP.) Tj
+1 0 0 1 48 394 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 368 Tm /F1 10 Tf (- `connected_export.py:1117-1218`) Tj
+1 0 0 1 48 354 Tm /F1 10 Tf (- `connected_export.py:129-193`) Tj
+1 0 0 1 48 340 Tm /F1 10 Tf (- `connected_export.py:1024-1055`) Tj
+1 0 0 1 48 326 Tm /F1 10 Tf (- `connected_export.py:1056-1114`) Tj
+1 0 0 1 48 302 Tm /F1 10 Tf (---) Tj
+1 0 0 1 48 278 Tm /F1 16 Tf (3. File-by-File Technical Role) Tj
+1 0 0 1 48 242 Tm /F1 13 Tf (`app.py`) Tj
+1 0 0 1 48 210 Tm /F1 10 Tf (Role:) Tj
+1 0 0 1 48 186 Tm /F1 10 Tf (- Streamlit control center) Tj
+1 0 0 1 48 172 Tm /F1 10 Tf (- database initialization) Tj
+1 0 0 1 48 158 Tm /F1 10 Tf (- login/registration) Tj
+1 0 0 1 48 144 Tm /F1 10 Tf (- clone trigger) Tj
+1 0 0 1 48 130 Tm /F1 10 Tf (- saved project manager) Tj
+1 0 0 1 48 116 Tm /F1 10 Tf (- raw HTML editor) Tj
+1 0 0 1 48 102 Tm /F1 10 Tf (- Smart Dynamic Conversion trigger) Tj
+1 0 0 1 48 88 Tm /F1 10 Tf (- export trigger) Tj
+1 0 0 1 48 64 Tm /F1 10 Tf (Best defense line:) Tj
+ET
+endstream
+endobj
+15 0 obj
+<< /Type /Page /Parent 28 0 R /Resources << /Font << /F1 1 0 R >> >> /Contents 14 0 R >>
+endobj
+16 0 obj
+<< /Length 2411 >>
+stream
+BT
+1 0 0 1 48 804 Tm /F1 10 Tf (`app.py` is the orchestration layer. It does not do the heavy crawling or inference itself; it ) Tj
+1 0 0 1 48 790 Tm /F1 10 Tf (coordinates other modules and persists the results.) Tj
+1 0 0 1 48 766 Tm /F1 10 Tf (Key references:) Tj
+1 0 0 1 48 742 Tm /F1 10 Tf (- `app.py:244-379`) Tj
+1 0 0 1 48 728 Tm /F1 10 Tf (- `app.py:1665-2159`) Tj
+1 0 0 1 48 704 Tm /F1 13 Tf (`cloner_engine.py`) Tj
+1 0 0 1 48 672 Tm /F1 10 Tf (Role:) Tj
+1 0 0 1 48 648 Tm /F1 10 Tf (- crawl the target site) Tj
+1 0 0 1 48 634 Tm /F1 10 Tf (- discover internal pages) Tj
+1 0 0 1 48 620 Tm /F1 10 Tf (- download assets) Tj
+1 0 0 1 48 606 Tm /F1 10 Tf (- rewrite HTML/CSS/JS references) Tj
+1 0 0 1 48 592 Tm /F1 10 Tf (- inject a navigation bridge) Tj
+1 0 0 1 48 578 Tm /F1 10 Tf (- build a local multi-page bundle and ZIP) Tj
+1 0 0 1 48 554 Tm /F1 10 Tf (Best defense line:) Tj
+1 0 0 1 48 540 Tm /F1 10 Tf (This file is the deterministic website cloning engine.) Tj
+1 0 0 1 48 516 Tm /F1 10 Tf (Key references:) Tj
+1 0 0 1 48 492 Tm /F1 10 Tf (- `cloner_engine.py:615-699`) Tj
+1 0 0 1 48 478 Tm /F1 10 Tf (- `cloner_engine.py:1348-1468`) Tj
+1 0 0 1 48 464 Tm /F1 10 Tf (- `cloner_engine.py:1529-1717`) Tj
+1 0 0 1 48 440 Tm /F1 13 Tf (`smart_conversion.py`) Tj
+1 0 0 1 48 408 Tm /F1 10 Tf (Role:) Tj
+1 0 0 1 48 384 Tm /F1 10 Tf (- infer site type) Tj
+1 0 0 1 48 370 Tm /F1 10 Tf (- extract navigation, sections, forms, and media) Tj
+1 0 0 1 48 356 Tm /F1 10 Tf (- localize media) Tj
+1 0 0 1 48 342 Tm /F1 10 Tf (- infer content models) Tj
+1 0 0 1 48 328 Tm /F1 10 Tf (- create seed records) Tj
+1 0 0 1 48 314 Tm /F1 10 Tf (- compute confidence) Tj
+1 0 0 1 48 300 Tm /F1 10 Tf (- create `SiteSpec`) Tj
+1 0 0 1 48 276 Tm /F1 10 Tf (Best defense line:) Tj
+1 0 0 1 48 262 Tm /F1 10 Tf (This file transforms a static clone into structured, manageable CMS data.) Tj
+1 0 0 1 48 238 Tm /F1 10 Tf (Key references:) Tj
+1 0 0 1 48 214 Tm /F1 10 Tf (- `smart_conversion.py:425-756`) Tj
+1 0 0 1 48 200 Tm /F1 10 Tf (- `smart_conversion.py:950-1585`) Tj
+1 0 0 1 48 176 Tm /F1 13 Tf (`dragdrop_flask.py`) Tj
+1 0 0 1 48 144 Tm /F1 10 Tf (Role:) Tj
+1 0 0 1 48 120 Tm /F1 10 Tf (- serves clone previews and static assets) Tj
+1 0 0 1 48 106 Tm /F1 10 Tf (- hosts the drag-and-drop editor) Tj
+1 0 0 1 48 92 Tm /F1 10 Tf (- hosts the built React admin) Tj
+1 0 0 1 48 78 Tm /F1 10 Tf (- exposes admin/public/dynamic APIs) Tj
+ET
+endstream
+endobj
+17 0 obj
+<< /Type /Page /Parent 28 0 R /Resources << /Font << /F1 1 0 R >> >> /Contents 16 0 R >>
+endobj
+18 0 obj
+<< /Length 2569 >>
+stream
+BT
+1 0 0 1 48 804 Tm /F1 10 Tf (Best defense line:) Tj
+1 0 0 1 48 790 Tm /F1 10 Tf (This file is the shared runtime service layer for editing, previewing, and managing data.) Tj
+1 0 0 1 48 766 Tm /F1 10 Tf (Key references:) Tj
+1 0 0 1 48 742 Tm /F1 10 Tf (- `dragdrop_flask.py:526-670`) Tj
+1 0 0 1 48 728 Tm /F1 10 Tf (- `dragdrop_flask.py:673-1251`) Tj
+1 0 0 1 48 704 Tm /F1 13 Tf (`connected_export.py`) Tj
+1 0 0 1 48 672 Tm /F1 10 Tf (Role:) Tj
+1 0 0 1 48 648 Tm /F1 10 Tf (- creates a standalone package for one site) Tj
+1 0 0 1 48 634 Tm /F1 10 Tf (- exports a site-scoped database) Tj
+1 0 0 1 48 620 Tm /F1 10 Tf (- writes a separate backend runtime) Tj
+1 0 0 1 48 606 Tm /F1 10 Tf (- writes run scripts and manifests) Tj
+1 0 0 1 48 582 Tm /F1 10 Tf (Best defense line:) Tj
+1 0 0 1 48 568 Tm /F1 10 Tf (This file turns the project from a local development tool into a distributable connected system.) Tj
+1 0 0 1 48 544 Tm /F1 10 Tf (Key references:) Tj
+1 0 0 1 48 520 Tm /F1 10 Tf (- `connected_export.py:53-126`) Tj
+1 0 0 1 48 506 Tm /F1 10 Tf (- `connected_export.py:129-193`) Tj
+1 0 0 1 48 492 Tm /F1 10 Tf (- `connected_export.py:1024-1218`) Tj
+1 0 0 1 48 468 Tm /F1 13 Tf (`admin/src/*`) Tj
+1 0 0 1 48 436 Tm /F1 10 Tf (Role:) Tj
+1 0 0 1 48 412 Tm /F1 10 Tf (- React admin frontend) Tj
+1 0 0 1 48 398 Tm /F1 10 Tf (- uses `SiteSpec` to generate navigation and forms) Tj
+1 0 0 1 48 384 Tm /F1 10 Tf (- performs CRUD over Flask APIs) Tj
+1 0 0 1 48 370 Tm /F1 10 Tf (- gives a non-technical CMS-style interface for one cloned site) Tj
+1 0 0 1 48 346 Tm /F1 10 Tf (Key references:) Tj
+1 0 0 1 48 322 Tm /F1 10 Tf (- `admin/src/App.tsx:91-139`) Tj
+1 0 0 1 48 308 Tm /F1 10 Tf (- `admin/src/components/AdminShell.tsx:65-140`) Tj
+1 0 0 1 48 294 Tm /F1 10 Tf (- `admin/src/pages/ProjectDetailPage.tsx:8-227`) Tj
+1 0 0 1 48 280 Tm /F1 10 Tf (- `admin/src/pages/ResourceListPage.tsx:64-240`) Tj
+1 0 0 1 48 266 Tm /F1 10 Tf (- `admin/src/pages/RecordEditorPage.tsx:49-279`) Tj
+1 0 0 1 48 252 Tm /F1 10 Tf (- `admin/src/pages/MediaPage.tsx:50-260`) Tj
+1 0 0 1 48 228 Tm /F1 10 Tf (---) Tj
+1 0 0 1 48 204 Tm /F1 16 Tf (4. Core Algorithms You Should Be Ready To Explain) Tj
+1 0 0 1 48 168 Tm /F1 13 Tf (Clone algorithm) Tj
+1 0 0 1 48 136 Tm /F1 10 Tf (Short answer:) Tj
+1 0 0 1 48 122 Tm /F1 10 Tf (The system performs controlled same-domain crawling, then rewrites every captured page and asset ) Tj
+1 0 0 1 48 108 Tm /F1 10 Tf (reference into a local bundle.) Tj
+1 0 0 1 48 84 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 58 Tm /F1 10 Tf (- `cloner_engine.py:615-699`) Tj
+ET
+endstream
+endobj
+19 0 obj
+<< /Type /Page /Parent 28 0 R /Resources << /Font << /F1 1 0 R >> >> /Contents 18 0 R >>
+endobj
+20 0 obj
+<< /Length 2470 >>
+stream
+BT
+1 0 0 1 48 804 Tm /F1 10 Tf (- `cloner_engine.py:1529-1717`) Tj
+1 0 0 1 48 780 Tm /F1 13 Tf (Path rewriting algorithm) Tj
+1 0 0 1 48 748 Tm /F1 10 Tf (Short answer:) Tj
+1 0 0 1 48 734 Tm /F1 10 Tf (For each HTML page, the engine resolves each link or asset URL, decides whether it should remain a page ) Tj
+1 0 0 1 48 720 Tm /F1 10 Tf (link or become a downloaded asset, then rewrites the attribute to the new relative local path.) Tj
+1 0 0 1 48 696 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 670 Tm /F1 10 Tf (- `cloner_engine.py:1348-1468`) Tj
+1 0 0 1 48 646 Tm /F1 13 Tf (Site type detection algorithm) Tj
+1 0 0 1 48 614 Tm /F1 10 Tf (Short answer:) Tj
+1 0 0 1 48 600 Tm /F1 10 Tf (The system scores categories such as `ecommerce`, `education`, `blog`, and `service_business` using ) Tj
+1 0 0 1 48 586 Tm /F1 10 Tf (keyword and hostname rules, then picks the highest-scoring type.) Tj
+1 0 0 1 48 562 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 536 Tm /F1 10 Tf (- `smart_conversion.py:950-982`) Tj
+1 0 0 1 48 512 Tm /F1 13 Tf (Content model inference algorithm) Tj
+1 0 0 1 48 480 Tm /F1 10 Tf (Short answer:) Tj
+1 0 0 1 48 466 Tm /F1 10 Tf (The detected site type selects a base set of business collections, then the system always adds internal ) Tj
+1 0 0 1 48 452 Tm /F1 10 Tf (system collections such as pages, sections, navigation items, and theme styles.) Tj
+1 0 0 1 48 428 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 402 Tm /F1 10 Tf (- `smart_conversion.py:1281-1318`) Tj
+1 0 0 1 48 378 Tm /F1 13 Tf (Seed record generation algorithm) Tj
+1 0 0 1 48 346 Tm /F1 10 Tf (Short answer:) Tj
+1 0 0 1 48 332 Tm /F1 10 Tf (The system uses extracted headings, paragraphs, prices, navigation items, sections, and media URLs to ) Tj
+1 0 0 1 48 318 Tm /F1 10 Tf (synthesize initial records that match the inferred schema.) Tj
+1 0 0 1 48 294 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 268 Tm /F1 10 Tf (- `smart_conversion.py:1321-1368`) Tj
+1 0 0 1 48 244 Tm /F1 13 Tf (Confidence algorithm) Tj
+1 0 0 1 48 212 Tm /F1 10 Tf (Short answer:) Tj
+1 0 0 1 48 198 Tm /F1 10 Tf (The confidence is a weighted score across structure, text, sections, styles, layout, media recovery, link) Tj
+1 0 0 1 48 184 Tm /F1 10 Tf ( coverage, interactivity, and site-type certainty.) Tj
+1 0 0 1 48 160 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 134 Tm /F1 10 Tf (- `smart_conversion.py:1433-1487`) Tj
+1 0 0 1 48 110 Tm /F1 10 Tf (---) Tj
+1 0 0 1 48 86 Tm /F1 16 Tf (5. Database Story In Simple Words) Tj
+ET
+endstream
+endobj
+21 0 obj
+<< /Type /Page /Parent 28 0 R /Resources << /Font << /F1 1 0 R >> >> /Contents 20 0 R >>
+endobj
+22 0 obj
+<< /Length 2555 >>
+stream
+BT
+1 0 0 1 48 804 Tm /F1 10 Tf (`users` stores who owns the work.) Tj
+1 0 0 1 48 780 Tm /F1 10 Tf (`cloned_sites` stores the saved clone entry HTML and source URL.) Tj
+1 0 0 1 48 756 Tm /F1 10 Tf (`conversion_blueprints` stores the full inferred analysis result.) Tj
+1 0 0 1 48 732 Tm /F1 10 Tf (`site_specs` stores the schema contract used by the admin app.) Tj
+1 0 0 1 48 708 Tm /F1 10 Tf (`dynamic_models` stores the inferred collections.) Tj
+1 0 0 1 48 684 Tm /F1 10 Tf (`dynamic_records` stores actual content rows.) Tj
+1 0 0 1 48 660 Tm /F1 10 Tf (`media_assets` stores localized or uploaded media and mapping metadata.) Tj
+1 0 0 1 48 636 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 610 Tm /F1 10 Tf (- `app.py:244-379`) Tj
+1 0 0 1 48 586 Tm /F1 10 Tf (---) Tj
+1 0 0 1 48 562 Tm /F1 16 Tf (6. Diagram Explanations For Viva) Tj
+1 0 0 1 48 526 Tm /F1 13 Tf (High-Level System Flow) Tj
+1 0 0 1 48 494 Tm /F1 10 Tf (Use this line:) Tj
+1 0 0 1 48 480 Tm /F1 10 Tf (This diagram shows the life of one website from URL input to clone bundle, structured conversion, admin ) Tj
+1 0 0 1 48 466 Tm /F1 10 Tf (management, public API delivery, and final export packaging.) Tj
+1 0 0 1 48 442 Tm /F1 13 Tf (System Architecture) Tj
+1 0 0 1 48 410 Tm /F1 10 Tf (Use this line:) Tj
+1 0 0 1 48 396 Tm /F1 10 Tf (This diagram separates the project into five layers: Streamlit control, clone and inference logic, ) Tj
+1 0 0 1 48 382 Tm /F1 10 Tf (persistence, Flask services, and the React admin UI.) Tj
+1 0 0 1 48 358 Tm /F1 13 Tf (Use Case Diagram) Tj
+1 0 0 1 48 326 Tm /F1 10 Tf (Use this line:) Tj
+1 0 0 1 48 312 Tm /F1 10 Tf (This diagram shows that the technical operator handles cloning and generation, while the content manager ) Tj
+1 0 0 1 48 298 Tm /F1 10 Tf (only manages structured content inside the site-scoped admin.) Tj
+1 0 0 1 48 274 Tm /F1 13 Tf (Class / Module Diagram) Tj
+1 0 0 1 48 242 Tm /F1 10 Tf (Use this line:) Tj
+1 0 0 1 48 228 Tm /F1 10 Tf (This diagram shows which core modules exist in code and how orchestration, cloning, conversion, serving, ) Tj
+1 0 0 1 48 214 Tm /F1 10 Tf (admin UI, export, and database access connect together.) Tj
+1 0 0 1 48 190 Tm /F1 13 Tf (End-to-End Sequence Diagram) Tj
+1 0 0 1 48 158 Tm /F1 10 Tf (Use this line:) Tj
+1 0 0 1 48 144 Tm /F1 10 Tf (This diagram shows the exact runtime order: clone, stage preview, save project, convert, open admin, ) Tj
+1 0 0 1 48 130 Tm /F1 10 Tf (manage records, and export.) Tj
+1 0 0 1 48 106 Tm /F1 13 Tf (Data Flow Diagram) Tj
+1 0 0 1 48 74 Tm /F1 10 Tf (Use this line:) Tj
+ET
+endstream
+endobj
+23 0 obj
+<< /Type /Page /Parent 28 0 R /Resources << /Font << /F1 1 0 R >> >> /Contents 22 0 R >>
+endobj
+24 0 obj
+<< /Length 2533 >>
+stream
+BT
+1 0 0 1 48 804 Tm /F1 10 Tf (This diagram focuses on how data changes form, especially how HTML becomes SiteSpec, models, records, and) Tj
+1 0 0 1 48 790 Tm /F1 10 Tf ( media assets.) Tj
+1 0 0 1 48 766 Tm /F1 13 Tf (Entity Relationship Diagram) Tj
+1 0 0 1 48 734 Tm /F1 10 Tf (Use this line:) Tj
+1 0 0 1 48 720 Tm /F1 10 Tf (This diagram explains the seven-table schema and how one cloned site owns its blueprint, spec, models, ) Tj
+1 0 0 1 48 706 Tm /F1 10 Tf (records, and media.) Tj
+1 0 0 1 48 682 Tm /F1 13 Tf (Deployment and Runtime Diagram) Tj
+1 0 0 1 48 650 Tm /F1 10 Tf (Use this line:) Tj
+1 0 0 1 48 636 Tm /F1 10 Tf (This diagram shows the real runtime processes and ports used during development and in the exported ) Tj
+1 0 0 1 48 622 Tm /F1 10 Tf (standalone system.) Tj
+1 0 0 1 48 598 Tm /F1 13 Tf (Connected Export Package Structure) Tj
+1 0 0 1 48 566 Tm /F1 10 Tf (Use this line:) Tj
+1 0 0 1 48 552 Tm /F1 10 Tf (This diagram explains the final packaged system, where the clone, admin panel, backend, database, media, ) Tj
+1 0 0 1 48 538 Tm /F1 10 Tf (and generated artifacts are bundled together.) Tj
+1 0 0 1 48 514 Tm /F1 10 Tf (---) Tj
+1 0 0 1 48 490 Tm /F1 16 Tf (7. Likely Jury Questions With Direct Answers) Tj
+1 0 0 1 48 454 Tm /F1 13 Tf (What is the main entry point?) Tj
+1 0 0 1 48 422 Tm /F1 10 Tf (`app.py` is the main user-facing entry point because it runs the Streamlit control app and triggers the ) Tj
+1 0 0 1 48 408 Tm /F1 10 Tf (rest of the pipeline.) Tj
+1 0 0 1 48 384 Tm /F1 11 Tf (Reference:) Tj
+1 0 0 1 48 358 Tm /F1 10 Tf (- `app.py:1665-2159`) Tj
+1 0 0 1 48 334 Tm /F1 13 Tf (Where does cloning actually happen?) Tj
+1 0 0 1 48 302 Tm /F1 10 Tf (In `cloner_engine.py`, mainly through `clone_site_bundle\(\)`, `crawl_site_pages\(\)`, and ) Tj
+1 0 0 1 48 288 Tm /F1 10 Tf (`rewrite_page_html\(\)`.) Tj
+1 0 0 1 48 264 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 238 Tm /F1 10 Tf (- `cloner_engine.py:615-699`) Tj
+1 0 0 1 48 224 Tm /F1 10 Tf (- `cloner_engine.py:1348-1468`) Tj
+1 0 0 1 48 210 Tm /F1 10 Tf (- `cloner_engine.py:1529-1717`) Tj
+1 0 0 1 48 186 Tm /F1 13 Tf (Where does the CMS schema come from?) Tj
+1 0 0 1 48 154 Tm /F1 10 Tf (From `smart_conversion.py`, especially `extract_content_models\(\)` and `build_site_spec\(\)`.) Tj
+1 0 0 1 48 130 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 104 Tm /F1 10 Tf (- `smart_conversion.py:1281-1318`) Tj
+1 0 0 1 48 90 Tm /F1 10 Tf (- `smart_conversion.py:1497-1519`) Tj
+1 0 0 1 48 66 Tm /F1 13 Tf (How does the admin know what screens to show?) Tj
+ET
+endstream
+endobj
+25 0 obj
+<< /Type /Page /Parent 28 0 R /Resources << /Font << /F1 1 0 R >> >> /Contents 24 0 R >>
+endobj
+26 0 obj
+<< /Length 2184 >>
+stream
+BT
+1 0 0 1 48 804 Tm /F1 10 Tf (The admin reads the generated `SiteSpec`, then builds navigation and forms from `spec.resources`.) Tj
+1 0 0 1 48 780 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 754 Tm /F1 10 Tf (- `smart_conversion.py:1497-1519`) Tj
+1 0 0 1 48 740 Tm /F1 10 Tf (- `admin/src/components/AdminShell.tsx:130-143`) Tj
+1 0 0 1 48 716 Tm /F1 13 Tf (How is the clone updated when content changes?) Tj
+1 0 0 1 48 684 Tm /F1 10 Tf (Through the frontend bridge and public APIs. The clone receives the injected bridge script and can fetch ) Tj
+1 0 0 1 48 670 Tm /F1 10 Tf (content from the public endpoints.) Tj
+1 0 0 1 48 646 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 620 Tm /F1 10 Tf (- `smart_conversion.py:759-820`) Tj
+1 0 0 1 48 606 Tm /F1 10 Tf (- `dragdrop_flask.py:1174-1187`) Tj
+1 0 0 1 48 582 Tm /F1 13 Tf (Why is Flask needed if Streamlit already exists?) Tj
+1 0 0 1 48 550 Tm /F1 10 Tf (Streamlit is the operator dashboard. Flask is the service/runtime layer for previews, APIs, drag-and-drop) Tj
+1 0 0 1 48 536 Tm /F1 10 Tf ( editing, media serving, and admin hosting.) Tj
+1 0 0 1 48 512 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 486 Tm /F1 10 Tf (- `app.py:1665-2159`) Tj
+1 0 0 1 48 472 Tm /F1 10 Tf (- `dragdrop_flask.py:526-670`) Tj
+1 0 0 1 48 448 Tm /F1 13 Tf (What makes the export standalone?) Tj
+1 0 0 1 48 416 Tm /F1 10 Tf (The export contains its own backend, site database, built admin, cloned frontend, media, and generated ) Tj
+1 0 0 1 48 402 Tm /F1 10 Tf (artifacts.) Tj
+1 0 0 1 48 378 Tm /F1 11 Tf (References:) Tj
+1 0 0 1 48 352 Tm /F1 10 Tf (- `connected_export.py:1117-1218`) Tj
+1 0 0 1 48 328 Tm /F1 10 Tf (---) Tj
+1 0 0 1 48 304 Tm /F1 16 Tf (8. Final Takeaway) Tj
+1 0 0 1 48 268 Tm /F1 10 Tf (If the jury asks what this project really is, the best short answer is:) Tj
+1 0 0 1 48 244 Tm /F1 10 Tf (AI Website Fabricator is a clone-first website re-engineering system. It captures a live website ) Tj
+1 0 0 1 48 230 Tm /F1 10 Tf (deterministically, converts that clone into structured CMS data, serves a separate admin panel for ) Tj
+1 0 0 1 48 216 Tm /F1 10 Tf (managing the content, and can package the result as a standalone connected system.) Tj
+ET
+endstream
+endobj
+27 0 obj
+<< /Type /Page /Parent 28 0 R /Resources << /Font << /F1 1 0 R >> >> /Contents 26 0 R >>
+endobj
+28 0 obj
+<< /Type /Pages /Kids [3 0 R 5 0 R 7 0 R 9 0 R 11 0 R 13 0 R 15 0 R 17 0 R 19 0 R 21 0 R 23 0 R 25 0 R 27 0 R] /Count 13 /MediaBox [0 0 595 842] >>
+endobj
+29 0 obj
+<< /Type /Catalog /Pages 28 0 R >>
+endobj
+xref
+0 30
+0000000000 65535 f 
+0000000015 00000 n 
+0000000085 00000 n 
+0000002650 00000 n 
+0000002753 00000 n 
+0000005600 00000 n 
+0000005703 00000 n 
+0000008456 00000 n 
+0000008559 00000 n 
+0000011459 00000 n 
+0000011562 00000 n 
+0000014100 00000 n 
+0000014205 00000 n 
+0000017234 00000 n 
+0000017339 00000 n 
+0000019914 00000 n 
+0000020019 00000 n 
+0000022483 00000 n 
+0000022588 00000 n 
+0000025210 00000 n 
+0000025315 00000 n 
+0000027838 00000 n 
+0000027943 00000 n 
+0000030551 00000 n 
+0000030656 00000 n 
+0000033242 00000 n 
+0000033347 00000 n 
+0000035584 00000 n 
+0000035689 00000 n 
+0000035853 00000 n 
+trailer
+<< /Size 30 /Root 29 0 R >>
+startxref
+35904
+%%EOF

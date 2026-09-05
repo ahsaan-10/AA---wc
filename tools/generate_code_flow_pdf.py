@@ -150,7 +150,8 @@ def box_diagram(labels_and_arrows, width=480, row_height=32):
 # ══════════════════════════════════════════════
 #   BUILD PDF
 # ══════════════════════════════════════════════
-output_path = os.path.join(os.path.dirname(__file__), "AI_Website_Fabricator_Code_Flow.pdf")
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+output_path = os.path.join(REPO_ROOT, "docs", "academic", "CODE_FLOW.pdf")
 
 doc = SimpleDocTemplate(
     output_path, pagesize=A4,

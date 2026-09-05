@@ -6,17 +6,17 @@ This guide explains how the old POC/Milestone 2 report should be updated using t
 
 Main M3 report source:
 
-- [STREAMCLONE_M3_REPORT.md](/c:/Users/lenovo/Downloads/aa/STREAMCLONE_M3_REPORT.md)
-- [STREAMCLONE_M3_REPORT.docx](/c:/Users/lenovo/Downloads/aa/STREAMCLONE_M3_REPORT.docx)
+- [STREAMCLONE_M3_REPORT.md](M3_REPORT.md)
+- [STREAMCLONE_M3_REPORT.docx](M3_REPORT.docx)
 
 Diagram files:
 
-- [M3_DIAGRAMS.drawio](/c:/Users/lenovo/Downloads/aa/M3_DIAGRAMS.drawio)
-- [M3_DIAGRAMS_GUIDE.md](/c:/Users/lenovo/Downloads/aa/M3_DIAGRAMS_GUIDE.md)
+- [M3_DIAGRAMS.drawio](../diagrams/M3_DIAGRAMS.drawio)
+- [M3_DIAGRAMS_GUIDE.md](../diagrams/DIAGRAMS_GUIDE.md)
 
 Deep technical source of truth:
 
-- [AI_WEBSITE_FABRICATOR_MASTER_DOCUMENTATION.md](/c:/Users/lenovo/Downloads/aa/AI_WEBSITE_FABRICATOR_MASTER_DOCUMENTATION.md)
+- [AI_WEBSITE_FABRICATOR_MASTER_DOCUMENTATION.md](../MASTER_DOCUMENTATION.md)
 
 ## 2. How It Maps to the Older POC Report
 

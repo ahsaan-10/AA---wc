@@ -4,7 +4,7 @@ This guide describes the finalized Milestone 3 diagram pack prepared as a native
 
 Main editable file:
 
-- [M3_DIAGRAMS.drawio](/c:/Users/lenovo/Downloads/aa/M3_DIAGRAMS.drawio)
+- [M3_DIAGRAMS.drawio](M3_DIAGRAMS.drawio)
 
 The file is draw.io-native, opens directly in `https://app.diagrams.net`, and contains one clean page per report diagram.
 
@@ -24,7 +24,7 @@ The pack now includes all nine diagrams requested for the Milestone 3 report upd
 
 ## 2. Page Names Inside The Draw.io File
 
-The current page names inside [M3_DIAGRAMS.drawio](/c:/Users/lenovo/Downloads/aa/M3_DIAGRAMS.drawio) are:
+The current page names inside [M3_DIAGRAMS.drawio](M3_DIAGRAMS.drawio) are:
 
 1. `1. High-Level System Flow`
 2. `2. System Architecture`
@@ -177,7 +177,7 @@ This diagram pack is based on the current working implementation, not outdated m
 
 To edit any diagram:
 
-1. Open [M3_DIAGRAMS.drawio](/c:/Users/lenovo/Downloads/aa/M3_DIAGRAMS.drawio) in `https://app.diagrams.net`.
+1. Open [M3_DIAGRAMS.drawio](M3_DIAGRAMS.drawio) in `https://app.diagrams.net`.
 2. Select the required page from the page tabs.
 3. Adjust shapes, spacing, colors, or captions if needed.
 4. Export the page as `PNG` or `SVG` for insertion into the report or PPT.

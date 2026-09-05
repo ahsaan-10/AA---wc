@@ -1,4 +1,6 @@
 @echo off
+REM Starts the backend and opens the site-scoped admin login.
+REM Usage: start_admin.bat [SITE_ID]
 set SITE_ID=%~1
 if "%SITE_ID%"=="" set SITE_ID=2
 

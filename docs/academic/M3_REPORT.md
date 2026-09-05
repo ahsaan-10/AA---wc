@@ -14,9 +14,9 @@ It keeps the overall chapter flow of the previous report and adds the missing Mi
 
 Related project files:
 
-- [AI_WEBSITE_FABRICATOR_MASTER_DOCUMENTATION.md](/c:/Users/lenovo/Downloads/aa/AI_WEBSITE_FABRICATOR_MASTER_DOCUMENTATION.md)
-- [M3_DIAGRAMS_GUIDE.md](/c:/Users/lenovo/Downloads/aa/M3_DIAGRAMS_GUIDE.md)
-- [M3_DIAGRAMS.drawio](/c:/Users/lenovo/Downloads/aa/M3_DIAGRAMS.drawio)
+- [AI_WEBSITE_FABRICATOR_MASTER_DOCUMENTATION.md](../MASTER_DOCUMENTATION.md)
+- [M3_DIAGRAMS_GUIDE.md](../diagrams/DIAGRAMS_GUIDE.md)
+- [M3_DIAGRAMS.drawio](../diagrams/M3_DIAGRAMS.drawio)
 
 ---
 
@@ -73,7 +73,7 @@ The project’s high-level system flow is:
 Suggested insertion:
 
 - Insert a general system diagram here if needed for continuity with the earlier report.
-- For Milestone 3 grading, the diagram pack required by the guideline is already prepared separately in [M3_DIAGRAMS.drawio](/c:/Users/lenovo/Downloads/aa/M3_DIAGRAMS.drawio).
+- For Milestone 3 grading, the diagram pack required by the guideline is already prepared separately in [M3_DIAGRAMS.drawio](../diagrams/M3_DIAGRAMS.drawio).
 
 ---
 
@@ -272,7 +272,7 @@ For Milestone 3, the most important design diagrams are:
 - Component Diagram
 - Deployment Diagram
 
-These are prepared in [M3_DIAGRAMS.drawio](/c:/Users/lenovo/Downloads/aa/M3_DIAGRAMS.drawio).
+These are prepared in [M3_DIAGRAMS.drawio](../diagrams/M3_DIAGRAMS.drawio).
 
 ---
 
@@ -325,7 +325,7 @@ Milestone 3 implementation transforms StreamClone from a cloning proof of concep
 
 ### 7.2.1 Streamlit Control App
 
-Implemented in [app.py](/c:/Users/lenovo/Downloads/aa/app.py), this module handles:
+Implemented in [app.py](../../app.py), this module handles:
 
 - login and registration
 - clone mode selection
@@ -337,7 +337,7 @@ Implemented in [app.py](/c:/Users/lenovo/Downloads/aa/app.py), this module handl
 
 ### 7.2.2 Clone Engine
 
-Implemented in [cloner_engine.py](/c:/Users/lenovo/Downloads/aa/cloner_engine.py), this module handles:
+Implemented in [cloner_engine.py](../../cloner_engine.py), this module handles:
 
 - page crawling
 - sitemap-assisted discovery
@@ -348,7 +348,7 @@ Implemented in [cloner_engine.py](/c:/Users/lenovo/Downloads/aa/cloner_engine.py
 
 ### 7.2.3 Smart Conversion Engine
 
-Implemented in [smart_conversion.py](/c:/Users/lenovo/Downloads/aa/smart_conversion.py), this module handles:
+Implemented in [smart_conversion.py](../../smart_conversion.py), this module handles:
 
 - site type detection
 - media extraction
@@ -360,7 +360,7 @@ Implemented in [smart_conversion.py](/c:/Users/lenovo/Downloads/aa/smart_convers
 
 ### 7.2.4 Flask Service Layer
 
-Implemented in [dragdrop_flask.py](/c:/Users/lenovo/Downloads/aa/dragdrop_flask.py), this module handles:
+Implemented in [dragdrop_flask.py](../../dragdrop_flask.py), this module handles:
 
 - visual editor routes
 - clone preview routes
@@ -372,7 +372,7 @@ Implemented in [dragdrop_flask.py](/c:/Users/lenovo/Downloads/aa/dragdrop_flask.
 
 ### 7.2.5 Connected Export Packager
 
-Implemented in [connected_export.py](/c:/Users/lenovo/Downloads/aa/connected_export.py), this module handles:
+Implemented in [connected_export.py](../../connected_export.py), this module handles:
 
 - package generation
 - clone/admin/media/database bundling
@@ -396,7 +396,7 @@ Key components shown:
 
 Suggested insertion:
 
-- Insert `Component Diagram` page from [M3_DIAGRAMS.drawio](/c:/Users/lenovo/Downloads/aa/M3_DIAGRAMS.drawio)
+- Insert `Component Diagram` page from [M3_DIAGRAMS.drawio](../diagrams/M3_DIAGRAMS.drawio)
 
 Suggested caption:
 
@@ -417,7 +417,7 @@ Key deployment elements shown:
 
 Suggested insertion:
 
-- Insert `Deployment Diagram` page from [M3_DIAGRAMS.drawio](/c:/Users/lenovo/Downloads/aa/M3_DIAGRAMS.drawio)
+- Insert `Deployment Diagram` page from [M3_DIAGRAMS.drawio](../diagrams/M3_DIAGRAMS.drawio)
 
 Suggested caption:
 
@@ -439,7 +439,7 @@ Key steps shown:
 
 Suggested insertion:
 
-- Insert `Operational Diagram` page from [M3_DIAGRAMS.drawio](/c:/Users/lenovo/Downloads/aa/M3_DIAGRAMS.drawio)
+- Insert `Operational Diagram` page from [M3_DIAGRAMS.drawio](../diagrams/M3_DIAGRAMS.drawio)
 
 Suggested caption:
 
@@ -650,12 +650,12 @@ The project shows a strong milestone progression:
 
 Diagram source files:
 
-- [M3_DIAGRAMS.drawio](/c:/Users/lenovo/Downloads/aa/M3_DIAGRAMS.drawio)
-- [M3_DIAGRAMS_GUIDE.md](/c:/Users/lenovo/Downloads/aa/M3_DIAGRAMS_GUIDE.md)
+- [M3_DIAGRAMS.drawio](../diagrams/M3_DIAGRAMS.drawio)
+- [M3_DIAGRAMS_GUIDE.md](../diagrams/DIAGRAMS_GUIDE.md)
 
 ## Appendix B: Master Technical Documentation
 
-- [AI_WEBSITE_FABRICATOR_MASTER_DOCUMENTATION.md](/c:/Users/lenovo/Downloads/aa/AI_WEBSITE_FABRICATOR_MASTER_DOCUMENTATION.md)
+- [AI_WEBSITE_FABRICATOR_MASTER_DOCUMENTATION.md](../MASTER_DOCUMENTATION.md)
 
 ## Appendix C: Generated and Runtime Artifacts
 
@@ -675,11 +675,11 @@ Relevant project folders:
 
 ## Appendix E: Key Source Files
 
-- [app.py](/c:/Users/lenovo/Downloads/aa/app.py)
-- [cloner_engine.py](/c:/Users/lenovo/Downloads/aa/cloner_engine.py)
-- [smart_conversion.py](/c:/Users/lenovo/Downloads/aa/smart_conversion.py)
-- [dragdrop_flask.py](/c:/Users/lenovo/Downloads/aa/dragdrop_flask.py)
-- [connected_export.py](/c:/Users/lenovo/Downloads/aa/connected_export.py)
+- [app.py](../../app.py)
+- [cloner_engine.py](../../cloner_engine.py)
+- [smart_conversion.py](../../smart_conversion.py)
+- [dragdrop_flask.py](../../dragdrop_flask.py)
+- [connected_export.py](../../connected_export.py)
 
 ---
 
@@ -696,11 +696,11 @@ Relevant project folders:
 6. Python `sqlite3` Documentation. SQLite Database Access in Python.
 7. Requests Documentation. Python HTTP Client Library Documentation.
 8. draw.io / diagrams.net. Diagram Authoring Environment.
-9. [GuideLines for 3rd and 4th Milestone.pdf](c:/Users/lenovo/AppData/Local/Packages/5319275A.WhatsAppDesktop_cv1g1gvanyjgm/LocalState/sessions/E7F5CBED9D049F4CC5E0903FE38EE755AD5133E3/transfers/2026-14/GuideLines%20for%203rd%20and%204th%20Milestone.pdf)
-10. [3rd milestone rubrics.pdf](c:/Users/lenovo/AppData/Local/Packages/5319275A.WhatsAppDesktop_cv1g1gvanyjgm/LocalState/sessions/E7F5CBED9D049F4CC5E0903FE38EE755AD5133E3/transfers/2026-14/3rd%20milestone%20rubrics.pdf)
+9. Course handout: *Guidelines for 3rd and 4th Milestone* (extracted text: [source-material/m3_m4_guidelines_extracted.txt](source-material/m3_m4_guidelines_extracted.txt))
+10. Course handout: *3rd Milestone Rubrics* (extracted text: [source-material/m3_rubrics_extracted.txt](source-material/m3_rubrics_extracted.txt))
 
 ## 14.2 Project Source References
 
-1. [AI_WEBSITE_FABRICATOR_MASTER_DOCUMENTATION.md](/c:/Users/lenovo/Downloads/aa/AI_WEBSITE_FABRICATOR_MASTER_DOCUMENTATION.md)
-2. [M3_DIAGRAMS_GUIDE.md](/c:/Users/lenovo/Downloads/aa/M3_DIAGRAMS_GUIDE.md)
-3. [M3_DIAGRAMS.drawio](/c:/Users/lenovo/Downloads/aa/M3_DIAGRAMS.drawio)
+1. [AI_WEBSITE_FABRICATOR_MASTER_DOCUMENTATION.md](../MASTER_DOCUMENTATION.md)
+2. [M3_DIAGRAMS_GUIDE.md](../diagrams/DIAGRAMS_GUIDE.md)
+3. [M3_DIAGRAMS.drawio](../diagrams/M3_DIAGRAMS.drawio)

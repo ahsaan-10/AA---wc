@@ -9,17 +9,17 @@ This document is the code-grounded source of truth for the current AI Website Fa
 
 All technical statements in this document are derived from the current working codebase, primarily:
 
-- [app.py](/c:/Users/lenovo/Downloads/aa/app.py)
-- [cloner_engine.py](/c:/Users/lenovo/Downloads/aa/cloner_engine.py)
-- [smart_conversion.py](/c:/Users/lenovo/Downloads/aa/smart_conversion.py)
-- [dragdrop_flask.py](/c:/Users/lenovo/Downloads/aa/dragdrop_flask.py)
-- [connected_export.py](/c:/Users/lenovo/Downloads/aa/connected_export.py)
-- [admin/src/App.tsx](/c:/Users/lenovo/Downloads/aa/admin/src/App.tsx)
-- [admin/src/components/AdminShell.tsx](/c:/Users/lenovo/Downloads/aa/admin/src/components/AdminShell.tsx)
-- [admin/src/pages/ProjectDetailPage.tsx](/c:/Users/lenovo/Downloads/aa/admin/src/pages/ProjectDetailPage.tsx)
-- [admin/src/pages/ResourceListPage.tsx](/c:/Users/lenovo/Downloads/aa/admin/src/pages/ResourceListPage.tsx)
-- [admin/src/pages/RecordEditorPage.tsx](/c:/Users/lenovo/Downloads/aa/admin/src/pages/RecordEditorPage.tsx)
-- [admin/src/pages/MediaPage.tsx](/c:/Users/lenovo/Downloads/aa/admin/src/pages/MediaPage.tsx)
+- [app.py](../app.py)
+- [cloner_engine.py](../cloner_engine.py)
+- [smart_conversion.py](../smart_conversion.py)
+- [dragdrop_flask.py](../dragdrop_flask.py)
+- [connected_export.py](../connected_export.py)
+- `admin/src/App.tsx`
+- `admin/src/components/AdminShell.tsx`
+- `admin/src/pages/ProjectDetailPage.tsx`
+- `admin/src/pages/ResourceListPage.tsx`
+- `admin/src/pages/RecordEditorPage.tsx`
+- `admin/src/pages/MediaPage.tsx`
 
 Older milestone notes are referenced only as historical context where useful. They are not treated as the implementation source of truth.
 
@@ -188,10 +188,10 @@ The project is split into five major runtime layers:
 
 ### 2.4 Startup and helper scripts
 
-- [start_cloner.bat](/c:/Users/lenovo/Downloads/aa/start_cloner.bat): runs the Streamlit app
-- [start_backend.bat](/c:/Users/lenovo/Downloads/aa/start_backend.bat): runs the Flask backend
-- [start_admin.bat](/c:/Users/lenovo/Downloads/aa/start_admin.bat): starts backend and opens the site-specific admin URL
-- [start_all.bat](/c:/Users/lenovo/Downloads/aa/start_all.bat): starts the cloner-related flow and prints key URLs
+- [start_cloner.bat](../scripts/start_cloner.bat): runs the Streamlit app
+- [start_backend.bat](../scripts/start_backend.bat): runs the Flask backend
+- [start_admin.bat](../scripts/start_admin.bat): starts backend and opens the site-specific admin URL
+- [start_all.bat](../scripts/start_all.bat): starts the cloner-related flow and prints key URLs
 
 ## 3. Complete End-to-End Flow
 
@@ -573,7 +573,7 @@ The `admin/src` folder contains the standalone React admin application used for 
 
 ### 5.1 Storage model
 
-The project uses one shared SQLite database file, [users.db](/c:/Users/lenovo/Downloads/aa/users.db), for both operator-side and admin-side state.
+The project uses one shared SQLite database file, `users.db`, for both operator-side and admin-side state.
 
 ### 5.2 Tables
 

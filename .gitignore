@@ -1,0 +1,39 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.Python
+
+# ---- Local state (generated at runtime, never commit) ----
+*.db
+*.sqlite
+*.sqlite3
+users.db
+project_data.db
+
+# ---- Generated workspaces & artifacts ----
+project_assets/
+cloned_sites/
+saved_bundles/
+exports/
+media/
+*.zip
+
+# ---- Logs ----
+*.log
+.codex_*.log
+
+# ---- Node / admin frontend build ----
+node_modules/
+admin/dist/
+admin/node_modules/
+
+# ---- Editor & OS ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini

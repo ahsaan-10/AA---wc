@@ -1,5 +1,9 @@
-streamlit
-requests
-beautifulsoup4
-flask
-flask-cors
+# Core application dependencies
+streamlit>=1.30        # operator console (app.py)
+flask>=3.0             # runtime, REST API and admin host (dragdrop_flask.py)
+flask-cors>=4.0        # CORS for /api/* and /dynamic-api/*
+requests>=2.31         # HTTP fetching for the clone engine
+beautifulsoup4>=4.12   # HTML parsing / DOM rewriting
+
+# Documentation tooling (tools/generate_code_flow_pdf.py)
+reportlab>=4.0

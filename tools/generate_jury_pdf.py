@@ -5,9 +5,9 @@ from pathlib import Path
 from textwrap import wrap
 
 
-ROOT = Path(__file__).resolve().parent
-SOURCE = ROOT / "AI_WEBSITE_FABRICATOR_JURY_CODE_FLOW_BRIEF.md"
-OUTPUT = ROOT / "AI_WEBSITE_FABRICATOR_JURY_CODE_FLOW_BRIEF.pdf"
+ROOT = Path(__file__).resolve().parent.parent
+SOURCE = ROOT / "docs" / "academic" / "JURY_CODE_FLOW_BRIEF.md"
+OUTPUT = ROOT / "docs" / "academic" / "JURY_CODE_FLOW_BRIEF.pdf"
 
 PAGE_WIDTH = 595
 PAGE_HEIGHT = 842

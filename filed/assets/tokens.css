@@ -1,0 +1,119 @@
+/* FILED — design tokens.
+   Colour does one job in this product: it encodes the stage a return is in.
+   Everything structural is ink, paper and rule. If a colour on screen is not a
+   status, it is a mistake. */
+
+:root {
+  color-scheme: light;
+
+  /* Ground and surfaces — cool paper, never cream */
+  --bg:            #E7EAEC;
+  --panel:         #F8FAFA;
+  --panel-raised:  #FFFFFF;
+  --panel-sunk:    #EDF1F1;
+
+  /* The single institutional ink */
+  --accent:        #16283C;
+  --accent-fg:     #F6F8F8;
+  --accent-soft:   #24405E;
+
+  /* Text */
+  --text:          #16283C;
+  --text-muted:    #55636F;
+  --text-faint:    #7C8894;
+
+  /* Ledger rules */
+  --rule:          #D3DADC;
+  --rule-strong:   #B6C1C4;
+  --rule-hair:     #E1E6E7;
+
+  --focus:         #1B5AA8;
+  --shade:         rgba(16, 32, 46, 0.36);
+
+  /* Stage colours */
+  --st-intake:      #4E5C68;
+  --st-docs:        #8A5600;
+  --st-prep:        #0A6960;
+  --st-review:      #493EA6;
+  --st-signature:   #A2450A;
+  --st-transmitted: #1B5AA8;
+  --st-accepted:    #146239;
+  --st-rejected:    #A61C15;
+  --st-invoiced:    #5C6770;
+
+  /* Diagnostic severity reuses the status set rather than inventing a second one */
+  --sev-block:     var(--st-rejected);
+  --sev-variance:  var(--st-docs);
+  --sev-attention: var(--st-transmitted);
+
+  --tab-h: 40px;
+  --row-h: 34px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg:            #0F1519;
+    --panel:         #161E24;
+    --panel-raised:  #1D272E;
+    --panel-sunk:    #121A1F;
+
+    --accent:        #CFDDE7;
+    --accent-fg:     #0F1519;
+    --accent-soft:   #A9BECD;
+
+    --text:          #E5EBEE;
+    --text-muted:    #A0AEB8;
+    --text-faint:    #7C8B95;
+
+    --rule:          #2A353D;
+    --rule-strong:   #3B4952;
+    --rule-hair:     #212B32;
+
+    --focus:         #79B4F2;
+    --shade:         rgba(0, 0, 0, 0.6);
+
+    --st-intake:      #A6B5C0;
+    --st-docs:        #D9A23F;
+    --st-prep:        #46BFAF;
+    --st-review:      #9F94EF;
+    --st-signature:   #EE9A5C;
+    --st-transmitted: #79B4F2;
+    --st-accepted:    #5FC489;
+    --st-rejected:    #F0827A;
+    --st-invoiced:    #A3AEB7;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg:            #0F1519;
+  --panel:         #161E24;
+  --panel-raised:  #1D272E;
+  --panel-sunk:    #121A1F;
+
+  --accent:        #CFDDE7;
+  --accent-fg:     #0F1519;
+  --accent-soft:   #A9BECD;
+
+  --text:          #E5EBEE;
+  --text-muted:    #A0AEB8;
+  --text-faint:    #7C8B95;
+
+  --rule:          #2A353D;
+  --rule-strong:   #3B4952;
+  --rule-hair:     #212B32;
+
+  --focus:         #79B4F2;
+  --shade:         rgba(0, 0, 0, 0.6);
+
+  --st-intake:      #A6B5C0;
+  --st-docs:        #D9A23F;
+  --st-prep:        #46BFAF;
+  --st-review:      #9F94EF;
+  --st-signature:   #EE9A5C;
+  --st-transmitted: #79B4F2;
+  --st-accepted:    #5FC489;
+  --st-rejected:    #F0827A;
+  --st-invoiced:    #A3AEB7;
+}

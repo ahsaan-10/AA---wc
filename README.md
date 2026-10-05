@@ -1,109 +1,60 @@
-# AA / AI Website Fabricator - Jury Demo Runbook
+# Website Fabricator Prototype
 
-This repository provides a local website cloning and editable CMS flow:
+**A Python prototype exploring website capture, structure inference, and editable content workflows.**
 
-- Streamlit control app (`app.py`)
-- Flask runtime/API/admin host (`dragdrop_flask.py`)
-- Clone engine (`cloner_engine.py`)
-- Smart conversion + bridge (`smart_conversion.py`)
-- React site-scoped admin (`admin/src`, served from `admin/dist`)
+## What the code explores
 
-## 1) Demo Goal (What to Show)
+- Reference-page capture and localized asset bundles.
+- Inference of site structure, models, pages, sections, navigation, and theme settings.
+- Streamlit orchestration of capture and conversion.
+- Flask routes for previews, admin/public APIs, and content operations.
+- Connected export packaging.
 
-For the jury demo, prove this flow on localhost:
+The reusable output is inferred structure and starter data. It does not reconstruct a source website's private backend or guarantee a complete CMS for every website.
 
-1. A site is already cloned/saved/converted (UITU first).
-2. Local admin panel is accessible.
-3. Admin-side content/media changes reflect through public data endpoints.
-4. Clone preview uses bridge logic and no-cache responses so updates can show after refresh.
+## Public repository status
 
-## 2) Known Demo Credentials
+The Python operator, capture engine, conversion module, Flask runtime, and export module are present. The public tree reviewed on 5 October 2026 does **not** include the `admin/` frontend referenced by the runtime, or the `users.db` file expected by the existing demo setup. The bundled `project_data.db` is a different file. The prior site-specific jury walkthrough therefore cannot be assumed to work from a fresh clone.
 
-Use the deterministic local demo user:
+Treat this as an engineering prototype until frontend assets and a repeatable database initialization flow are supplied and verified.
 
-- Username: `jurydemo`
-- Password: `jurydemo123`
+## Explore the implementation
 
-Prepare/refresh this user with:
-
-```powershell
-c:\Users\lenovo\Downloads\aa\.venv\Scripts\python.exe prepare_demo.py
+```text
+app.py              Streamlit operator interface
+cloner_engine.py    Capture, assets, link rewriting, bundle packaging
+smart_conversion.py Structure inference and generated-site bindings
+dragdrop_flask.py   Runtime, API, preview, and admin-serving routes
+connected_export.py Export packaging
+prepare_demo.py     Existing local demo preparation script
+requirements.txt    Python dependencies
 ```
 
-This currently assigns the UITU sites (`site 35`, `site 33`) to `jurydemo`.
+See [the architecture documentation](AI_WEBSITE_FABRICATOR_MASTER_DOCUMENTATION.md) for the broader implementation explanation. Local walkthroughs in existing reports depend on their original demo environment.
 
-## 3) Startup Commands
+## Local setup starting point
 
-Run these in separate terminals from:
-
-`c:\Users\lenovo\Downloads\aa`
-
-### 3.1 Flask backend
-
-```powershell
-c:\Users\lenovo\Downloads\aa\.venv\Scripts\python.exe dragdrop_flask.py
+```bash
+git clone https://github.com/ahsaan-10/AA---wc.git
+cd AA---wc
+python -m venv .venv
 ```
 
-### 3.2 Streamlit control app
+Activate the environment and install dependencies:
 
-```powershell
-c:\Users\lenovo\Downloads\aa\.venv\Scripts\python.exe -m streamlit run app.py
+```bash
+python -m pip install -r requirements.txt
 ```
 
-## 4) Local URLs
+After resolving the frontend and database prerequisites, the intended entry points are:
 
-- Streamlit: `http://127.0.0.1:8501`
-- Admin login for UITU: `http://127.0.0.1:5001/admin/site/35/login`
-- Clone preview for UITU: `http://127.0.0.1:5001/clone/35/`
-- Admin projects API: `http://127.0.0.1:5001/api/projects`
-- Public site sections API: `http://127.0.0.1:5001/api/public/35/site_sections`
-- Public theme styles API: `http://127.0.0.1:5001/api/public/35/theme_styles`
-
-## 5) Jury Demo Script (Recommended Sequence)
-
-Use this exact order:
-
-1. Open `http://127.0.0.1:5001/admin/site/35/login`.
-2. Login with `jurydemo / jurydemo123`.
-3. Open project `35` (UITU).
-4. In admin:
-   - Edit one `site_sections` record title/summary.
-   - Edit one theme/media value (`theme_styles.logo_url` or `theme_styles.favicon_url`) using a local `/media/35/...` URL.
-5. Open clone preview `http://127.0.0.1:5001/clone/35/`.
-6. Hard refresh the page (`Ctrl+F5`).
-7. Show that:
-   - public APIs contain updated values
-   - clone preview response includes bridge script and no-cache headers
-
-## 6) Fast Verification Commands
-
-### 6.1 One-step API flow verification (UITU)
-
-```powershell
-c:\Users\lenovo\Downloads\aa\.venv\Scripts\python.exe verify_demo_flow.py --site-id 35
+```bash
+python dragdrop_flask.py
+python -m streamlit run app.py
 ```
 
-### 6.2 Flask health
+Run these in separate terminals. Expected local ports are 5001 for Flask and 8501 for Streamlit. These are setup entry points, not a claim that the current public checkout has passed a fresh-install test.
 
-```powershell
-c:\Users\lenovo\Downloads\aa\.venv\Scripts\python.exe -c "import requests; r=requests.get('http://127.0.0.1:5001/', timeout=5); print(r.status_code)"
-```
+## Presentation focus
 
-### 6.3 Streamlit health
-
-```powershell
-c:\Users\lenovo\Downloads\aa\.venv\Scripts\python.exe -c "import requests; r=requests.get('http://127.0.0.1:8501/', timeout=5); print(r.status_code)"
-```
-
-## 7) Current Implementation Notes
-
-- Clone HTML is bridge-injected on served clone pages.
-- Clone and media routes are served with no-cache headers.
-- Media PATCH endpoint supports multipart uploads without JSON parsing failures.
-- Flask default run mode is stable (no reloader by default). Set `AA_FLASK_DEBUG=1` only if needed.
-
-## 8) Known Limitations / Honest Fallback
-
-- UITU (`site 35`) is the safest first demo target.
-- Geo News and Al Jazeera should be treated as secondary targets unless they are freshly cloned and assigned to the demo user before presentation.
-- Final visible DOM updates depend on selector quality extracted during conversion; if a selector misses in a specific section, show public API reflection and another successfully mapped section.
+Explain capture → inferred structure → editable content → export. Use a website you own or have permission to use, and show which updates are visible in the API and which are successfully mapped into a preview.

@@ -1,27 +1,26 @@
-# AI Website Fabricator: Master Documentation Pack
+# Architecture
 
-This document is the code-grounded source of truth for the current AI Website Fabricator project. It is designed to be directly reusable for:
+A code-level walkthrough of how Website Fabricator captures a website, infers its structure, and turns it into editable content. Every statement here is based on the source files in this repository:
 
-- formal report writing
-- updated architecture and flow diagrams
-- PPT slide creation
-- future LLM prompting
+[`app.py`](../app.py) · [`cloner_engine.py`](../cloner_engine.py) · [`smart_conversion.py`](../smart_conversion.py) · [`dragdrop_flask.py`](../dragdrop_flask.py) · [`connected_export.py`](../connected_export.py)
 
-All technical statements in this document are derived from the current working codebase, primarily:
+> The React admin frontend (`admin/`) referenced in sections 8 and 13 is not included in this repository.
 
-- [app.py](/c:/Users/lenovo/Downloads/aa/app.py)
-- [cloner_engine.py](/c:/Users/lenovo/Downloads/aa/cloner_engine.py)
-- [smart_conversion.py](/c:/Users/lenovo/Downloads/aa/smart_conversion.py)
-- [dragdrop_flask.py](/c:/Users/lenovo/Downloads/aa/dragdrop_flask.py)
-- [connected_export.py](/c:/Users/lenovo/Downloads/aa/connected_export.py)
-- [admin/src/App.tsx](/c:/Users/lenovo/Downloads/aa/admin/src/App.tsx)
-- [admin/src/components/AdminShell.tsx](/c:/Users/lenovo/Downloads/aa/admin/src/components/AdminShell.tsx)
-- [admin/src/pages/ProjectDetailPage.tsx](/c:/Users/lenovo/Downloads/aa/admin/src/pages/ProjectDetailPage.tsx)
-- [admin/src/pages/ResourceListPage.tsx](/c:/Users/lenovo/Downloads/aa/admin/src/pages/ResourceListPage.tsx)
-- [admin/src/pages/RecordEditorPage.tsx](/c:/Users/lenovo/Downloads/aa/admin/src/pages/RecordEditorPage.tsx)
-- [admin/src/pages/MediaPage.tsx](/c:/Users/lenovo/Downloads/aa/admin/src/pages/MediaPage.tsx)
+## Contents
 
-Older milestone notes are referenced only as historical context where useful. They are not treated as the implementation source of truth.
+1. [Project Overview](#1-project-overview)
+2. [System Architecture](#2-system-architecture)
+3. [End-to-End Flow](#3-complete-end-to-end-flow)
+4. [Module-by-Module Code Explanation](#4-module-by-module-code-explanation)
+5. [Database Design](#5-database-design)
+6. [Filesystem and Generated Artifacts](#6-filesystem--generated-artifacts)
+7. [API Documentation](#7-api-documentation)
+8. [Admin Panel Architecture](#8-admin-panel-architecture)
+9. [Inference and Conversion Logic](#9-inference-and-conversion-logic)
+10. [Clone Engine Internals](#10-clone-engine-internals)
+11. [Connected Export Architecture](#11-connected-export-architecture)
+12. [Limitations and Trade-offs](#12-limitations-and-tradeoffs)
+13. [Diagrams](#13-diagrams)
 
 ## 1. Project Overview
 
@@ -188,10 +187,10 @@ The project is split into five major runtime layers:
 
 ### 2.4 Startup and helper scripts
 
-- [start_cloner.bat](/c:/Users/lenovo/Downloads/aa/start_cloner.bat): runs the Streamlit app
-- [start_backend.bat](/c:/Users/lenovo/Downloads/aa/start_backend.bat): runs the Flask backend
-- [start_admin.bat](/c:/Users/lenovo/Downloads/aa/start_admin.bat): starts backend and opens the site-specific admin URL
-- [start_all.bat](/c:/Users/lenovo/Downloads/aa/start_all.bat): starts the cloner-related flow and prints key URLs
+- [start_cloner.bat](../scripts/start_cloner.bat): runs the Streamlit app
+- [start_backend.bat](../scripts/start_backend.bat): runs the Flask backend
+- [start_admin.bat](../scripts/start_admin.bat): starts backend and opens the site-specific admin URL
+- [start_all.bat](../scripts/start_all.bat): starts the cloner-related flow and prints key URLs
 
 ## 3. Complete End-to-End Flow
 
@@ -573,7 +572,7 @@ The `admin/src` folder contains the standalone React admin application used for 
 
 ### 5.1 Storage model
 
-The project uses one shared SQLite database file, [users.db](/c:/Users/lenovo/Downloads/aa/users.db), for both operator-side and admin-side state.
+The project uses one shared SQLite database file, `users.db`, for both operator-side and admin-side state.
 
 ### 5.2 Tables
 
@@ -1473,7 +1472,7 @@ These older technologies may appear in planning documents, but they are not the 
 - automatically inferred resource names and field mappings may need manual interpretation in some sectors
 - bridge-based frontend updating preserves structure well, but it is less flexible than a full framework rewrite
 
-## 13. Diagram-Ready Section
+## 13. Diagrams
 
 ### 13.1 System architecture diagram content
 
@@ -1630,175 +1629,3 @@ flowchart TD
     AS --> Media[media]
     AS --> GD[generated_dynamic]
 ```
-
-## 14. PPT-Ready Section
-
-### Slide 1: Project Title
-
-- AI Website Fabricator
-- Static Website to CMS Re-Engineering Platform
-- Final implementation based on Streamlit, Flask, React, SQLite, and local export packaging
-
-Suggested visual:
-- simple high-level architecture graphic
-
-### Slide 2: Problem Statement
-
-- Many websites are static or difficult to maintain
-- Full rebuilds are expensive and slow
-- Need a way to preserve the frontend while introducing structured content management
-
-Suggested visual:
-- before/after concept graphic
-
-### Slide 3: Proposed Solution
-
-- clone existing website
-- preserve original layout
-- infer schema and editable resources
-- provide separate admin panel
-- allow portable standalone export
-
-Suggested visual:
-- one-line pipeline diagram
-
-### Slide 4: Technology Stack
-
-- Streamlit for control dashboard
-- Flask for service layer and APIs
-- React + TypeScript for admin panel
-- SQLite for persistence
-- filesystem packages for clone/media/export storage
-
-Suggested visual:
-- stack table or layered diagram
-
-### Slide 5: Overall System Architecture
-
-Key points:
-- Streamlit controls operations
-- clone engine and conversion engine generate artifacts
-- Flask serves previews and APIs
-- React admin consumes `SiteSpec`
-
-Suggested visual:
-- architecture diagram from Section 13.1
-
-### Slide 6: End-to-End Workflow
-
-Key points:
-- URL input
-- clone
-- staged preview
-- save project
-- convert to dynamic CMS
-- manage in separate admin
-- export connected system
-
-Suggested visual:
-- data flow diagram from Section 13.2
-
-### Slide 7: Clone Engine
-
-Key points:
-- multi-page crawl
-- asset download and deduplication
-- CSS and link rewriting
-- manifest and ZIP creation
-
-Suggested visual:
-- clone engine sub-flow or page/asset rewrite diagram
-
-### Slide 8: Smart Dynamic Conversion
-
-Key points:
-- site type detection
-- section extraction
-- model inference
-- seed record generation
-- confidence scoring
-- `SiteSpec` creation
-
-Suggested visual:
-- conversion pipeline boxes
-
-### Slide 9: Database and Persistence
-
-Key points:
-- single SQLite database
-- core tables for projects, specs, models, records, media
-- generated files in `project_assets`
-
-Suggested visual:
-- ER diagram from Section 13.3
-
-### Slide 10: Separate Admin Panel
-
-Key points:
-- site-scoped login
-- resource navigation from `SiteSpec`
-- overview, records, media, publish flow
-- admin separate from cloner
-
-Suggested visual:
-- admin route tree or screenshot of screens
-
-### Slide 11: Media Management and Frontend Bridge
-
-Key points:
-- media localization
-- indexed media library
-- public APIs
-- injected bridge updates clone content without rebuilding whole frontend
-
-Suggested visual:
-- media flow plus bridge arrows to clone frontend
-
-### Slide 12: Connected Export
-
-Key points:
-- package includes clone, admin, backend, DB, and media
-- runs independently with one start script
-- useful for deployment/demo handoff
-
-Suggested visual:
-- export package structure diagram from Section 13.5
-
-### Slide 13: Strengths and Tradeoffs
-
-Strengths:
-- preserves original layout
-- dual editing modes
-- schema-driven admin
-- portable export
-
-Tradeoffs:
-- heuristic inference
-- manual cleanup may still be needed
-- SQLite/local architecture is demo-focused
-
-Suggested visual:
-- two-column strengths vs tradeoffs
-
-### Slide 14: Final Outcome
-
-- static website becomes manageable dynamic system
-- content, structure, media, and publishing are all manageable
-- current architecture is complete enough for demo, report, and further extension
-
-Suggested visual:
-- final system summary graphic
-
-## 15. Final Notes for Report and LLM Reuse
-
-When using this document to generate a report, diagrams, or PPT, treat the following as the final implementation truth:
-
-- the main control dashboard is Streamlit
-- the service/API layer is Flask
-- the separate admin panel is a custom React app
-- persistence is SQLite and filesystem-based
-- `SiteSpec` is the live schema contract for the admin
-- the clone engine is a custom Python crawler and rewriter
-- the system supports a standalone connected export package
-
-When older milestone documents mention technologies like `Supabase`, `SingleFile CLI`, or `React Admin`, those should be labeled as earlier design direction or historical planning, not the current implemented architecture.

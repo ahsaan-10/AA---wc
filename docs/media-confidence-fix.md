@@ -80,5 +80,5 @@ Media was missing from the admin panel because clone-time media ingestion never 
 
 ## Verified Backfill
 
-- IQRA clone now has localized/indexed media and an improved confidence score
-- Bahria clone now has localized/indexed media and an improved confidence score
+- Test site A now has localized/indexed media and an improved confidence score
+- Test site B now has localized/indexed media and an improved confidence score

@@ -1,4 +1,4 @@
-"""
+﻿"""
 AI Website Fabricator - Complete End-to-End Code Flow Document
 Generates a jury-ready PDF with file references, diagrams, and explanations.
 """
@@ -16,7 +16,7 @@ from reportlab.graphics.shapes import Drawing, Rect, String, Line, Circle
 from reportlab.graphics import renderPDF
 import os
 
-# ── Colors ──
+# â”€â”€ Colors â”€â”€
 DARK = HexColor("#1a1a2e")
 ACCENT = HexColor("#3b82f6")
 ACCENT2 = HexColor("#8b5cf6")
@@ -30,7 +30,7 @@ WHITE = white
 
 W, H = A4
 
-# ── Styles ──
+# â”€â”€ Styles â”€â”€
 styles = getSampleStyleSheet()
 
 styles.add(ParagraphStyle(
@@ -82,7 +82,7 @@ styles.add(ParagraphStyle(
     textColor=WHITE, fontName="Helvetica-Bold"
 ))
 
-# ── Helper functions ──
+# â”€â”€ Helper functions â”€â”€
 def heading(text, level=1):
     return Paragraph(text, styles[f"H{level}"])
 
@@ -147,10 +147,10 @@ def box_diagram(labels_and_arrows, width=480, row_height=32):
     return d
 
 
-# ══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 #   BUILD PDF
-# ══════════════════════════════════════════════
-output_path = os.path.join(os.path.dirname(__file__), "AI_Website_Fabricator_Code_Flow.pdf")
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+output_path = os.path.join(os.path.dirname(__file__), "..", "docs", "code-flow.pdf")
 
 doc = SimpleDocTemplate(
     output_path, pagesize=A4,
@@ -160,7 +160,7 @@ doc = SimpleDocTemplate(
 
 story = []
 
-# ── TITLE PAGE ──
+# â”€â”€ TITLE PAGE â”€â”€
 story.append(Spacer(1, 80))
 story.append(Paragraph("AI Website Fabricator", styles["DocTitle"]))
 story.append(Paragraph("Complete End-to-End Code Flow Document", styles["DocSubtitle"]))
@@ -196,9 +196,9 @@ story.append(make_table(
 
 story.append(PageBreak())
 
-# ══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 #   TABLE OF CONTENTS
-# ══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 story.append(heading("Table of Contents", 1))
 toc_items = [
     "1. System Architecture Overview",
@@ -220,9 +220,9 @@ for item in toc_items:
     story.append(body(item))
 story.append(PageBreak())
 
-# ══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 #   1. SYSTEM ARCHITECTURE
-# ══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 story.append(heading("1. System Architecture Overview", 1))
 story.append(body(
     "The system is a <b>hybrid Streamlit + Flask architecture</b>. Streamlit (app.py) serves the main UI on port 8501. "
@@ -267,9 +267,9 @@ story.append(caption("Every module dependency with the specific functions import
 
 story.append(PageBreak())
 
-# ══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 #   2. STARTUP FLOW
-# ══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 story.append(heading("2. Application Startup Flow", 1))
 story.append(fileref("app.py (bottom of file), dragdrop_flask.py (bottom of file)"))
 story.append(body(
@@ -301,9 +301,9 @@ story.append(code(
 
 story.append(PageBreak())
 
-# ══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 #   3. AUTHENTICATION
-# ══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 story.append(heading("3. Authentication System", 1))
 
 story.append(heading("3.1 Streamlit Auth (Main App)", 2))
@@ -342,9 +342,9 @@ story.append(caption("Auth flow: Login generates a serialized token. All admin A
 
 story.append(PageBreak())
 
-# ══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 #   4. DATABASE SCHEMA
-# ══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 story.append(heading("4. Database Schema (SQLite - users.db)", 1))
 story.append(fileref("app.py : init_db() | dragdrop_flask.py : ensure_dynamic_tables()"))
 story.append(body(
@@ -475,9 +475,9 @@ story.append(body("Indexed: idx_media_assets_site_user_asset_key on (site_id, us
 
 story.append(PageBreak())
 
-# ══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 #   5. CLONER ENGINE
-# ══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 story.append(heading("5. Module 1: Website Cloning Engine", 1))
 story.append(fileref("cloner_engine.py (~74 KB, ~1800 lines)"))
 story.append(body(
@@ -589,9 +589,9 @@ story.append(make_table(
 
 story.append(PageBreak())
 
-# ══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 #   6. SMART CONVERSION
-# ══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 story.append(heading("6. Module 2: Smart Dynamic Conversion", 1))
 story.append(fileref("smart_conversion.py (~69 KB, ~1700 lines)"))
 story.append(body(
@@ -672,9 +672,9 @@ story.append(bullet("<font face='Courier'>/api/public/{site_id}/site_pages</font
 
 story.append(PageBreak())
 
-# ══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 #   7. MAIN APP ORCHESTRATOR
-# ══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 story.append(heading("7. Module 3: Main Application Orchestrator", 1))
 story.append(fileref("app.py (~99 KB, ~2400 lines)"))
 story.append(body(
@@ -730,9 +730,9 @@ story.append(body(
 
 story.append(PageBreak())
 
-# ══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 #   8. DRAG & DROP EDITOR
-# ══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 story.append(heading("8. Module 4: Drag &amp; Drop Visual Editor", 1))
 story.append(fileref("dragdrop_flask.py (~50 KB, ~1280 lines)"))
 story.append(body(
@@ -790,9 +790,9 @@ story.append(make_table(
 
 story.append(PageBreak())
 
-# ══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 #   9. CONNECTED EXPORT
-# ══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 story.append(heading("9. Module 5: Connected Export Packager", 1))
 story.append(fileref("connected_export.py (~50 KB, ~1200 lines)"))
 story.append(body(
@@ -851,9 +851,9 @@ story.append(body(
 
 story.append(PageBreak())
 
-# ══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 #   10. ADMIN PANEL FRONTEND
-# ══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 story.append(heading("10. Module 6: Admin Panel Frontend", 1))
 story.append(fileref("admin/src/ (React 19 + TypeScript + Vite)"))
 story.append(body(
@@ -904,9 +904,9 @@ story.append(make_table(
 
 story.append(PageBreak())
 
-# ══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 #   11. END-TO-END USER JOURNEY
-# ══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 story.append(heading("11. End-to-End User Journey Flow", 1))
 story.append(body(
     "This section traces a complete user journey from registration to a deployed standalone system."
@@ -941,9 +941,9 @@ story.append(caption(
 
 story.append(PageBreak())
 
-# ══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 #   12. API ENDPOINTS
-# ══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 story.append(heading("12. Complete API Endpoints Reference", 1))
 story.append(fileref("dragdrop_flask.py (development) | connected_export.py (generated production)"))
 
@@ -1005,9 +1005,9 @@ story.append(make_table(
 
 story.append(PageBreak())
 
-# ══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 #   13. KEY ALGORITHMS
-# ══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 story.append(heading("13. Key Algorithms Deep Dive", 1))
 
 story.append(heading("13.1 BFS Web Crawling", 2))
@@ -1086,9 +1086,9 @@ story.append(body(
 
 story.append(PageBreak())
 
-# ══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 #   14. DIAGRAM EXPLANATIONS
-# ══════════════════════════════════════════════
+# â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 story.append(heading("14. Diagram Explanations", 1))
 story.append(body(
     "This section provides plain-English explanations for every diagram in this document."
@@ -1156,7 +1156,7 @@ story.append(body(
     "to update the cloned website's DOM with fresh content from the database)."
 ))
 
-# ── Final page ──
+# â”€â”€ Final page â”€â”€
 story.append(PageBreak())
 story.append(Spacer(1, 100))
 story.append(Paragraph("End of Document", styles["DocTitle"]))
@@ -1167,6 +1167,6 @@ story.append(body(
     "For any jury question, cross-reference the relevant section number with the file path provided."
 ))
 
-# ── Build ──
+# â”€â”€ Build â”€â”€
 doc.build(story)
 print(f"PDF generated: {output_path}")

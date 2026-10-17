@@ -1,60 +1,117 @@
-# Website Fabricator Prototype
+# Website Fabricator
 
-**A Python prototype exploring website capture, structure inference, and editable content workflows.**
+**Capture a website, infer its structure, and turn it into editable, API-backed content.**
 
-## What the code explores
+![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-UI-FF4B4B?logo=streamlit&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-API-000000?logo=flask&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-storage-003B57?logo=sqlite&logoColor=white)
+![Status](https://img.shields.io/badge/status-prototype-orange)
 
-- Reference-page capture and localized asset bundles.
-- Inference of site structure, models, pages, sections, navigation, and theme settings.
-- Streamlit orchestration of capture and conversion.
-- Flask routes for previews, admin/public APIs, and content operations.
-- Connected export packaging.
+---
 
-The reusable output is inferred structure and starter data. It does not reconstruct a source website's private backend or guarantee a complete CMS for every website.
+## Overview
 
-## Public repository status
+Website Fabricator is a Python prototype that takes a static website and re-engineers it into a content-managed one. It downloads the pages and assets, works out what the site is made of (pages, sections, navigation, repeated content such as cards or team members), and stores that structure as data models that can be edited through an API and previewed live.
 
-The Python operator, capture engine, conversion module, Flask runtime, and export module are present. The public tree reviewed on 5 October 2026 does **not** include the `admin/` frontend referenced by the runtime, or the `users.db` file expected by the existing demo setup. The bundled `project_data.db` is a different file. The prior site-specific jury walkthrough therefore cannot be assumed to work from a fresh clone.
+**Why it is interesting:** it combines web scraping, HTML structure inference, data modelling, and a REST backend into one end-to-end pipeline.
 
-Treat this as an engineering prototype until frontend assets and a repeatable database initialization flow are supplied and verified.
+## Key features
 
-## Explore the implementation
+| Feature | What it does |
+| --- | --- |
+| **Site capture** | Crawls a site, downloads HTML, CSS, images and fonts, and rewrites links so the copy works offline. |
+| **Structure inference** | Detects pages, sections, navigation, theme settings, and repeated content blocks, then proposes data models for them. |
+| **Editable content** | Saves inferred models and records in SQLite and exposes them through Flask CRUD endpoints. |
+| **Live preview** | Serves the captured site with edits applied, so changes are visible immediately. |
+| **Connected export** | Packages a site, its data, and a standalone Flask server into a portable bundle. |
+
+## How it works
+
+```mermaid
+flowchart LR
+    A[Source website] --> B[Capture engine<br/>cloner_engine.py]
+    B --> C[Local bundle<br/>HTML + assets + manifest]
+    C --> D[Structure inference<br/>smart_conversion.py]
+    D --> E[(SQLite<br/>models + records)]
+    E --> F[Flask API + preview<br/>dragdrop_flask.py]
+    E --> G[Connected export<br/>connected_export.py]
+    H[Streamlit operator UI<br/>app.py] -.controls.-> B
+    H -.controls.-> D
+```
+
+1. **Capture:** the operator enters a URL in the Streamlit app; the capture engine saves a local, link-rewritten bundle.
+2. **Infer:** the conversion module analyses the bundle and builds a site spec (pages, sections, models).
+3. **Edit:** models and records are stored in SQLite and served through the Flask API.
+4. **Preview and export:** edits show up in the live preview and can be exported as a standalone package.
+
+A full code-level walkthrough is in **[docs/architecture.md](docs/architecture.md)**.
+
+## Tech stack
+
+**Python** · **Streamlit** (operator UI) · **Flask** + Flask-CORS (REST API and preview server) · **Requests** + **Beautiful Soup** (capture and parsing) · **SQLite** (storage)
+
+## Project structure
 
 ```text
-app.py              Streamlit operator interface
-cloner_engine.py    Capture, assets, link rewriting, bundle packaging
-smart_conversion.py Structure inference and generated-site bindings
-dragdrop_flask.py   Runtime, API, preview, and admin-serving routes
-connected_export.py Export packaging
-prepare_demo.py     Existing local demo preparation script
-requirements.txt    Python dependencies
+website-fabricator/
+├── app.py                 # Streamlit operator interface (entry point)
+├── cloner_engine.py       # Capture, asset download, link rewriting, bundling
+├── smart_conversion.py    # Structure inference and data-model generation
+├── dragdrop_flask.py      # Flask API, live preview, and admin routes
+├── connected_export.py    # Standalone export packaging
+├── prepare_demo.py        # Sets up a local demo account and sample data
+├── requirements.txt
+├── docs/
+│   ├── architecture.md              # Detailed technical documentation
+│   ├── code-flow.pdf                # Printable code-flow overview
+│   ├── diagrams.drawio              # Editable architecture diagrams
+│   ├── clone-verification-report.json
+│   ├── media-confidence-fix.md
+│   └── admin-panel-gap-analysis.md
+└── scripts/
+    ├── start_all.bat      # Windows: start the operator UI
+    ├── start_cloner.bat   # Windows: Streamlit only
+    ├── start_backend.bat  # Windows: Flask API only
+    └── start_admin.bat    # Windows: API + open admin URL
 ```
 
-See [the architecture documentation](AI_WEBSITE_FABRICATOR_MASTER_DOCUMENTATION.md) for the broader implementation explanation. Local walkthroughs in existing reports depend on their original demo environment.
+## Getting started
 
-## Local setup starting point
+**Requirements:** Python 3.10 or newer.
 
 ```bash
-git clone https://github.com/ahsaan-10/AA---wc.git
-cd AA---wc
+git clone https://github.com/ahsaan-10/website-fabricator.git
+cd website-fabricator
 python -m venv .venv
+# Windows: .venv\Scripts\activate    macOS/Linux: source .venv/bin/activate
+pip install -r requirements.txt
 ```
 
-Activate the environment and install dependencies:
+Start the two services in separate terminals:
 
 ```bash
-python -m pip install -r requirements.txt
+python -m streamlit run app.py     # Operator UI  → http://localhost:8501
+python dragdrop_flask.py           # API/preview  → http://localhost:5001
 ```
 
-After resolving the frontend and database prerequisites, the intended entry points are:
+Start the Streamlit app first: it creates the local `users.db` database on its first run.
 
-```bash
-python dragdrop_flask.py
-python -m streamlit run app.py
-```
+## Status and limitations
 
-Run these in separate terminals. Expected local ports are 5001 for Flask and 8501 for Streamlit. These are setup entry points, not a claim that the current public checkout has passed a fresh-install test.
+This is a working **prototype**, not a production product.
 
-## Presentation focus
+- The capture, inference, API, and export modules are complete and included.
+- The separate React admin dashboard (`admin/`) is **not** included, so `/admin` routes return a "build not found" message.
+- JavaScript-heavy sites and pages behind a login are only partly supported, because capture is HTTP-based.
+- It infers structure and starter content; it does not recreate a site's private backend.
 
-Explain capture → inferred structure → editable content → export. Use a website you own or have permission to use, and show which updates are visible in the API and which are successfully mapped into a preview.
+> Only capture websites you own or have permission to use.
+
+## Related work
+
+[web-cloner](https://github.com/ahsaan-10/web-cloner) is the earlier, simpler version of this project (archived).
+
+## License
+
+Released under the [MIT License](LICENSE).
